@@ -1,4 +1,4 @@
-import {IndexJson} from './api';
+import {IndexJson, DetailJson} from './api';
 export default async function HttpServer (url, pages) {
   return new Promise((resolve, reject) => {
     fetch(url, {
@@ -29,6 +29,9 @@ function makeData(page,data) {
   switch (page) {
     case 'index':
       d = IndexJson(data)
+      break
+    case 'detail':
+      d = DetailJson(data)
       break
     default:
       break
