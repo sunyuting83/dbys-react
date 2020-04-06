@@ -3,8 +3,7 @@ import Header from '@/components/Header'
 import {DetailUrl} from '@/components/config'
 import HttpServer from '@/components/fetch'
 import Error from '@/components/Error'
-import { NavLink } from 'react-router-dom';
-export default class Detail extends Component {
+export default class Player extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,14 +25,13 @@ export default class Detail extends Component {
   }
 
   async getData(url) {
-    let data = await HttpServer(url,'detail')
+    let data = await HttpServer(url,'player')
     this.setState({
       data: data
     })
   }
 
   componentDidMount(){
-    console.log(this.state.id)
     const url = DetailUrl(this.state.id)
     this.getData(url)
   }
@@ -45,9 +43,7 @@ export default class Detail extends Component {
           <div>
             <Header menu={data.menu} menumore={data.menumore} />
             <section className="content has-header">
-              <div className="block catalog">
-                <NavLink to={'/player/'+data.detail.player} >{data.detail.player}</NavLink>
-              </div>
+              <div>{data.detail.code}</div>
             </section>
           </div>
           :

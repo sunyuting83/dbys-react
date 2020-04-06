@@ -8,17 +8,15 @@ import Error from '@/components/Error'
 
 const Home = React.lazy(_ => import('@/pages/home'))
 const Detail = React.lazy(_ => import('@/pages/detail'))
-// import Category from './Category/category';
-// import Player from './Player/player';
-// import LiveList from './LiveList/LiveList';
-// import LivePlatform from './LivePlatform/LivePlatform';
+const Player = React.lazy(_ => import('@/pages/player'))
 
 
 const App = () => (
   <BrowserRouter basename='/'>
     <Switch>
       <Route path='/' exact component={Home} />
-      <Route path='/:page/:id' component={Detail} />
+      <Route path='/detail/:id' component={Detail} />
+      <Route path='/player/:id' component={Player} />
     </Switch>
   </BrowserRouter>
 )

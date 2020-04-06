@@ -31,7 +31,7 @@ export default class indexList extends Component {
             <div className="block catalog">
               <div className="row row-wrap">
                 {s.list.length > 0 && s.list.map((l, index) => (
-                <Link className="col col-33 movie" to={l.url} key={index}>
+                <Link className="col col-33 movie" to={'detail/'+l.url} key={index}>
                   <div className="movie-img">
                     <img src={l.img} alt={l.title} />
                     <em>{l.rate}</em>

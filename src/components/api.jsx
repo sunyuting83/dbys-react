@@ -24,23 +24,43 @@ const makeMenu = ($) => {
       json.menumore = [...json.menumore,{title:title,url:url}]
     })
   })
+  localStorage.setItem('menu', JSON.stringify(json))
   return json
 }
+
+// 获取menu函数
+const getMenu = ($) => {
+  let menu = localStorage.getItem('menu')
+  if(menu === null) {
+    menu = makeMenu($)
+  }else {
+    menu = JSON.parse(menu);
+  }
+  return menu
+}
+
+// makeurl
+const makeUrl = (str) => {
+  str = str.substring(0, str.lastIndexOf('.'))
+  return Buffer.from(str).toString('base64')
+}
+
 // index数据
 const IndexJson = (data) => {
   const $ = cheerio.load(data)
-      , m = makeMenu($)
+      , menu = getMenu($)
   let json = {
     status: 0,
     swiper: [],
-    menu: m.menu,
-    menumore: m.menumore,
+    menu: menu.menu,
+    menumore: menu.menumore,
     movielist: []
   };
   const $swiper = $('body').find('#pbSlider0').children('div.o-slider--item')
   $swiper.each((index, element) => {
     const title = unescape($(element).children('div.o-slider-textWrap').children('a').text())
-    const url = $(element).children('div.o-slider-textWrap').children('a').attr('href')
+    let url = $(element).children('div.o-slider-textWrap').children('a').attr('href')
+    url = makeUrl(url)
     const img = $(element).children('img').attr('src')
     json.swiper = [...json.swiper,{title:title,url:url,img:img}]
   })
@@ -68,7 +88,7 @@ const IndexJson = (data) => {
           , rate = $(rt).children('span').text()
           , date = $(e).find('meta').text()
       let url = $(rt).attr('href')
-      url = url.substring(0, url.lastIndexOf('.'))
+      url = makeUrl(url)
       m = [...m,{title:title,url:url,img:img,rate:rate,date:date}]
     })
     mls = [...mls,m]
@@ -86,17 +106,67 @@ const IndexJson = (data) => {
 // 详情页数据
 const DetailJson = (data) => {
   const $ = cheerio.load(data)
-  const m = makeMenu($)
+      , menu = getMenu($)
   let json = {
     status: 0,
-    menu: m.menu,
-    menumore: m.menumore,
+    menu: menu.menu,
+    menumore: menu.menumore,
     detail: {}
   }
+  let player = $('body').children('div.body').children('div.movie-info').children('div.info1').children('a.secondary').attr('href')
+  json.detail.player = makeUrl(player)
+  return json
+}
+
+// 播放页数据
+const PlayerJson = (data) => {
+  const $ = cheerio.load(data)
+      , menu = getMenu($)
+  let json = {
+    status: 0,
+    menu: menu.menu,
+    menumore: menu.menumore,
+    detail: {}
+  }
+  let $d = $('head').children('script')
+  const l = $d.length - 1
+  let d = ''
+  $d.each((index, element) => {
+    if(index === l) {
+      d = $(element).html()
+    }
+  })
+  let n = d.split(';')
+  n = n.filter(x => {
+    if(x) {
+      x = x.replace(/(^\s+)|(\s+$)/g, "")
+      x = x.replace(/\s/g, "")
+      return x
+    }
+  })
+  const ptoken = n[0].split('=')[1].replace(/"/g, "").replace(/\s/g, "")
+  const sg = window.fxxk(ptoken)
+  const url = `https://cors.zme.ink/https://www.bde4.com/god/${ptoken}?sg=${sg}`
+  console.log(url)
+  fetch(url, {
+      method:'GET',
+      header: {
+        Accept:'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+      }
+  })
+  .then(function(data){
+    if(data.ok) {
+      data.text().then(function(data) {
+        console.log(data)
+      })
+    }
+  })
+  json.detail.code = d
   return json
 }
 
 export {
   IndexJson,
-  DetailJson
+  DetailJson,
+  PlayerJson
 }

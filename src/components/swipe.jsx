@@ -38,7 +38,7 @@ class indexSwiper extends Component {
             <div className='swiper-wrapper'>
               {swiper.length > 0 && swiper.map((s, i) => (
                 <div className="swiper-slide">
-                  <Link to={`/item/${s.url}`} key={i}>
+                  <Link to={`detail/${s.url}`} key={i}>
                     <img src={s.img} className="swiper-img" alt={s.title} />
                     <div className="swiper-word">
                       {s.title}

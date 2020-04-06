@@ -1,4 +1,4 @@
-import {IndexJson, DetailJson} from './api';
+import {IndexJson, DetailJson, PlayerJson} from './api';
 export default async function HttpServer (url, pages) {
   return new Promise((resolve, reject) => {
     fetch(url, {
@@ -32,6 +32,9 @@ function makeData(page,data) {
       break
     case 'detail':
       d = DetailJson(data)
+      break
+    case 'player':
+      d = PlayerJson(data)
       break
     default:
       break
