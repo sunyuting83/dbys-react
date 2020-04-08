@@ -14,7 +14,10 @@ module.exports = override(
         'react-dom': "window.ReactDOM",
         Swiper: "window.Swiper",
         iScroll: "window.JRoll",
-        'react-router-dom':"window.ReactRouterDOM"
+        'react-router-dom':"window.ReactRouterDOM",
+        Hls: "window.hls",
+        'dplayer': 'window.DPlayer',
+        'react-dplayer': 'window.ReactDPlayer'
       },
       config.devtool=false
     }
@@ -23,7 +26,10 @@ module.exports = override(
       "react-dom": "window.ReactDOM",
       Swiper: "window.Swiper",
       iScroll: "window.JRoll",
-      'react-router-dom':"window.ReactRouterDOM"
+      'react-router-dom':"window.ReactRouterDOM",
+      Hls: "window.hls",
+      'dplayer': 'window.DPlayer',
+      'react-dplayer': 'window.ReactDPlayer'
     }
     return config
   }
