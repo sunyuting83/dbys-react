@@ -109,7 +109,6 @@ b,cite,em,font,i,strong,sub,sup {
 
 a {
   text-decoration: none;
-  tap-highlight-color: rgba(0,0,0,0);
   -moz-tap-highlight-color: rgba(0,0,0,0);
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   -ms-tap-highlight-color: rgba(0,0,0,0);
@@ -196,7 +195,7 @@ header {
   align-items:center;
   background:#3097fd;
   padding:0;
-  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 header > .logo {
     display: block;
@@ -1085,7 +1084,6 @@ header .header-right .icon-vip {
     cursor: pointer;
     box-sizing: border-box;
     -webkit-box-flex: 1;
-    -ms-flex: 1;
     font-size: 1.23rem
 }
 .modal-button:first-child:last-child {
@@ -1253,7 +1251,6 @@ input.modal-text-input {
   cursor: pointer;
   box-sizing: border-box;
   -webkit-box-flex: 1;
-  -ms-flex: 1;
 }
 .modal-button:after {
   content: '';
