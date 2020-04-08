@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Swiper from 'Swiper'
 import '@/components/mySwiper.css'
 
 class indexSwiper extends Component {
   constructor(props) {
     super(props);
-    let data = this.props.data;
     this.state = {
-      swiper: data
+      swiper: this.props.data
     }
   }
 
@@ -18,7 +17,7 @@ class indexSwiper extends Component {
       autoplay: {
         delay: 4000,
         stopOnLastSlide: false,
-        disableOnInteraction: true
+        disableOnInteraction: false
       },
       direction: 'horizontal',
       pagination: {
@@ -30,20 +29,20 @@ class indexSwiper extends Component {
   }
 
   render() {
-    let swiper = this.state.swiper;
+    const swiper = this.state.swiper;
     return (
       <div>
         {swiper && swiper.length > 0 && (
-          <div className='swiper-container'>
+          <div className='swiper-container' style={{marginBottom:0}}>
             <div className='swiper-wrapper'>
               {swiper.length > 0 && swiper.map((s, i) => (
-                <div className="swiper-slide">
-                  <Link to={`detail/${s.url}`} key={i}>
+                <div className="swiper-slide"  key={i}>
+                  <NavLink to={`detail/${s.url}`}>
                     <img src={s.img} className="swiper-img" alt={s.title} />
                     <div className="swiper-word">
                       {s.title}
                     </div>
-                  </Link>
+                  </NavLink>
                 </div>
               ))
               }

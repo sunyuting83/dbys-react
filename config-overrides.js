@@ -12,14 +12,18 @@ module.exports = override(
       config.externals = {
         react: "window.React",
         'react-dom': "window.ReactDOM",
-        Swiper: "window.Swiper"
+        Swiper: "window.Swiper",
+        iScroll: "window.JRoll",
+        'react-router-dom':"window.ReactRouterDOM"
       },
       config.devtool=false
     }
     config.externals = {
       react: "window.React",
       "react-dom": "window.ReactDOM",
-      Swiper: "window.Swiper"
+      Swiper: "window.Swiper",
+      iScroll: "window.JRoll",
+      'react-router-dom':"window.ReactRouterDOM"
     }
     return config
   }

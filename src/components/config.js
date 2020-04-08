@@ -1,6 +1,7 @@
-const CROSUrl = 'https://cors.zme.ink/';
-const RootUrl = 'https://www.bde4.com';
-const IndexUrl = `${CROSUrl}${RootUrl}/`;
+const RootUrl = 'http://127.0.0.1:5002/api/'
+
+const IndexUrl = `${RootUrl}index`
+
 const DetailUrl = (b) => {
   b = Buffer.from(b, 'base64').toString('utf8')
   return `${IndexUrl}${b}.htm`

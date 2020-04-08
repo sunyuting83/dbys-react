@@ -1,5 +1,4 @@
-import {IndexJson, DetailJson, PlayerJson} from './api';
-export default async function HttpServer (url, pages) {
+export default async function HttpServer (url) {
   return new Promise((resolve, reject) => {
     fetch(url, {
         method:'GET',
@@ -9,9 +8,8 @@ export default async function HttpServer (url, pages) {
     })
     .then(async function(data){
       if(data.ok) {
-        data.text().then(function(data) {
-          const json = makeData(pages,data);
-          if(json.status === 0) resolve(json);
+        data.json().then(function(data) {
+          resolve(data);
         })
       }else {
         resolve({status:1,message:data.status});
@@ -22,22 +20,3 @@ export default async function HttpServer (url, pages) {
     })
   })
 };
-
-function makeData(page,data) {
-  // console.log(page);
-  let d = {};
-  switch (page) {
-    case 'index':
-      d = IndexJson(data)
-      break
-    case 'detail':
-      d = DetailJson(data)
-      break
-    case 'player':
-      d = PlayerJson(data)
-      break
-    default:
-      break
-  }
-  return d;
-}

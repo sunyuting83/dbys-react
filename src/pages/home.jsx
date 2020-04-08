@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import Header from '@/components/Header'
 import Swiper from '@/components/swipe'
+import Notice from '@/components/Notice'
 import IndexList from '@/components/indexlist'
 import {IndexUrl} from '@/components/config'
 import HttpServer from '@/components/fetch'
@@ -14,7 +15,7 @@ export default class Home extends Component {
   }
 
   async getData() {
-    let data = await HttpServer(IndexUrl,'index')
+    let data = await HttpServer(IndexUrl)
     this.setState({
       data: data
     })
@@ -41,9 +42,6 @@ export default class Home extends Component {
         })
       }
     }
-    // var ptoken = "DCAE7F35109330C66943B4DE9F0E8ABD9027DF92CF6A4E27C34D2457AFC2FD2A51625151F0D10C0FE37DC3C1D0BD4825";
-    // var sg = window.fxxk(ptoken);
-    // console.log(sg)
   }
   render() {
     const {data} = this.state
@@ -54,6 +52,7 @@ export default class Home extends Component {
             <Header menu={data.menu} menumore={data.menumore} />
             <section className="content has-header">
               <Swiper data={data.swiper} />
+              <Notice data={data.notice} />
               <IndexList data={data.movielist} />
             </section>
           </div>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export default class indexList extends Component {
   constructor(props) {
@@ -21,7 +21,7 @@ export default class indexList extends Component {
                   <span className="title-icon user-sishoucang"></span>
                 </div>
                 <div className="col col-70 b-title">
-                  {s.title}
+                  {s.c_name}
                 </div>
                 <div className="col col-20 f13 text-right">
                   更多
@@ -30,16 +30,26 @@ export default class indexList extends Component {
             </div>
             <div className="block catalog">
               <div className="row row-wrap">
-                {s.list.length > 0 && s.list.map((l, index) => (
-                <Link className="col col-33 movie" to={'detail/'+l.url} key={index}>
+                {s.movie.length > 0 && s.movie.map((l, index) => (
+                <NavLink className="col col-33 movie" to={'detail/'+l.url} key={l.id}>
                   <div className="movie-img">
                     <img src={l.img} alt={l.title} />
-                    <em>{l.rate}</em>
+                    <em>{l.remarks}</em>
+                    {parseInt(l.score) > 0?<i>{l.score}分</i>:null}
                   </div>
                   <span className="title">{l.title}</span>
-                </Link>
+                </NavLink>
                 ))}
               </div>
+              <div class="row row-wrap">
+                {s.smallclass.length > 0 && s.smallclass.map((l, index) => (
+                  <div class="col col-25"  key={l.id}>
+                    <NavLink className="label-blue" to={'/'+l.id}>
+                      {l.c_name}
+                    </NavLink>
+                  </div>
+                ))}
+            </div>
             </div>
           </div>
         ))}
