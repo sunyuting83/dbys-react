@@ -24,9 +24,10 @@ export default class Header extends Component {
               <img src={logo} alt="title" />
             </Link>
           </div>
-          <div className="hs-search">
-            <em></em>
-            <div type="text" className="search" placeholder="请输入片名或主演名"></div>
+          <div className="header-right">
+            <span className="icon icon-search"></span>
+            <span className="icon icon-history"></span>
+            <span className="icon icon-vip"></span>
           </div>
         </header>
         <div className="sub-header">
@@ -34,7 +35,7 @@ export default class Header extends Component {
             <ul>
               <Link to="/" title="首页" className="active">首页<em></em></Link>
               {menu.length > 0 && menu.map((s, i) => (
-                <Link to={s.id} key={i}>{s.c_name}<em></em></Link>
+                <Link to={'/list/'+s.id} key={i}>{s.c_name}<em></em></Link>
               ))}
             </ul>
           </div>
@@ -43,11 +44,10 @@ export default class Header extends Component {
             <i className={showmore?"icon icon-class active":"icon icon-class"}></i>
           </div>
         </div>
-        <div className="goToTop"></div>
         <section className="content class" style={{display:showmore?'block':false}}>
           <div className="block row row-wrap">
             {menumore.length > 0 && menumore.map((s, i) => (
-              <Link to={s.id} className="col col-25 padding-tb15" key={i}>
+              <Link to={'/list/'+s.id} className="col col-25 padding-tb15" key={i}>
                 <i className="class-icon cicon-movie"></i>
                 <span>{s.c_name}</span>
               </Link>

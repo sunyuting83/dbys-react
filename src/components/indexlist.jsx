@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import DefaultImg from '@/components/defaultImg'
 
 export default class indexList extends Component {
   constructor(props) {
@@ -31,9 +32,9 @@ export default class indexList extends Component {
             <div className="block catalog">
               <div className="row row-wrap">
                 {s.movie.length > 0 && s.movie.map((l, index) => (
-                <NavLink className="col col-33 movie" to={'detail/'+l.url} key={l.id}>
+                <NavLink className="col col-33 movie" to={`/player/${l.id}`} key={l.id}>
                   <div className="movie-img">
-                    <img src={l.img} alt={l.title} />
+                    <DefaultImg src={l.img} alt={l.title} />
                     <em>{l.remarks}</em>
                     {parseInt(l.score) > 0?<i>{l.score}分</i>:null}
                   </div>
@@ -44,7 +45,7 @@ export default class indexList extends Component {
               <div class="row row-wrap">
                 {s.smallclass.length > 0 && s.smallclass.map((l, index) => (
                   <div class="col col-25"  key={l.id}>
-                    <NavLink className="label-blue" to={'/'+l.id}>
+                    <NavLink className="label-blue" to={'/list/'+l.id}>
                       {l.c_name}
                     </NavLink>
                   </div>

@@ -481,6 +481,11 @@ header .header-right .icon-vip {
   max-width: 10%
 }
 
+.col-15 {
+  flex: 0 0 16.5%;
+  max-width: 16.5%
+}
+
 .col-20 {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 20%;
@@ -809,6 +814,7 @@ header .header-right .icon-vip {
 .ticon-yidali {background-position: -8.46rem -1.69rem}
 .ticon-sport {background-position: -13.61rem 0}
 .ticon-porn {background-position: -6.84rem -1.69rem}
+.ticon-play {background-position: -6.76rem -5.07rem}
 
 /*播放页图标*/
 .iconp {
@@ -821,7 +827,9 @@ header .header-right .icon-vip {
 }
 .icon-up {background-position: -6.76rem -3.38rem}
 .icon-down {background-position: -8.45rem -3.38rem}
-
+.iconp.icon-digg-up {background-position: -10.14rem -1.69rem}
+.iconp.icon-digg-down {background-position: -11.83rem -1.69rem}
+.iconp.icon-favorites {background-position: -13.52rem -1.69rem}
 
 
 /*padding*/
@@ -935,6 +943,15 @@ header .header-right .icon-vip {
 }
 .border-t {
   border-top:1px solid #ddd;
+}
+
+.contents {
+  height: 3.4375rem;
+  overflow: hidden;
+}
+.contents.active {
+  height: auto;
+  overflow: auto;
 }
 
 .success {

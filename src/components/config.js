@@ -6,10 +6,13 @@ const DetailUrl = (b) => {
   b = Buffer.from(b, 'base64').toString('utf8')
   return `${IndexUrl}${b}.htm`
 }
-
+const PlayerUrl = (b) => {
+  return `${RootUrl}getmovie?id=${b}`
+}
 
 export {
   IndexUrl,
   RootUrl,
-  DetailUrl
+  DetailUrl,
+  PlayerUrl
 }
