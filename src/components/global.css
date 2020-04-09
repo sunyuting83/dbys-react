@@ -183,7 +183,6 @@ header {
   right: 0;
   width: 100%;
   height: 2.93rem;
-  background:rgba(255,255,255,1);
   border-bottom: 1px solid #ddd;
   z-index: 99;
   transition: all .3s ease;
@@ -193,7 +192,6 @@ header {
   flex-wrap: nowrap;
   justify-content:space-between;
   align-items:center;
-  background:#3097fd;
   padding:0;
   box-sizing: border-box;
 }
@@ -349,7 +347,6 @@ header .header-right .icon-vip {
   left: 0;
   right: 0;
   height: 0.23rem;
-  background:#3097fd;
   display: none;
 }
 .sub-header .sub-class a.active > em {
@@ -634,7 +631,6 @@ header .header-right .icon-vip {
   height: 100%;
   display: inline-block;
   margin-right: 0.61rem;
-  background:#3097fd;
   vertical-align: middle;
 }
 
@@ -649,15 +645,13 @@ header .header-right .icon-vip {
 .c-title .sx-left {
   border-top-left-radius: 2.30rem;
   border-bottom-left-radius: 2.30rem;
-  border:1px solid #3097fd;
 }
 .c-title .sx-right {
   border-top-right-radius: 2.30rem;
   border-bottom-right-radius: 2.30rem;
-  border:1px solid #3097fd;
   margin-right: -1px;
 }
-.c-title .active {background:#3097fd;color:#fff;}
+.c-title .active {color:#fff;}
 
 /*筛选部分*/
 .sx-show {
@@ -679,11 +673,9 @@ header .header-right .icon-vip {
   padding:0.23rem 0.38rem;
 }
 .sx-show .sxroll a.active {
-  background:#3097fd;
   color:#fff;
 }
 .sx-show .type {
-  border:1px solid #3097fd;
   border-radius: 1.53rem;
   padding:0.15rem 0.46rem;
 }
@@ -859,13 +851,11 @@ header .header-right .icon-vip {
   color:#666;
 }
 .label-blue {
-  border:1px solid #3097fd;
   border-radius: 3px;
   width: 100%;
   display: block;
   font-size: 1.0rem;
   padding:0.38rem 0;
-  color:#3097fd;
 }
 
 /*text-color*/
@@ -1803,4 +1793,52 @@ height: 0.38rem;
 border-radius: 100%;
 background:#fff;
 }
-.swiper-pagination-bullet-active {background:#3097fd;}
+
+/* skin-blue */
+.skin.blue header,
+.skin.blue .sub-header .sub-class a > em,
+.skin.blue .b-title > .blues ,
+.skin.blue .c-title .active,
+.skin.blue .sx-show .sxroll a.active,
+.skin.blue .swiper-pagination-bullet-active{
+  background:#3097fd
+}
+.skin.blue .c-title .sx-left,
+.skin.blue .c-title .sx-right,
+.skin.blue .sx-show .type,
+.skin.blue .label-blue {
+  border:1px solid #3097fd;
+}
+.skin.red .label-blue {color:#3097fd;}
+/* skin-red */
+.skin.red header,
+.skin.red .sub-header .sub-class a > em,
+.skin.red .b-title > .blues ,
+.skin.red .c-title .active,
+.skin.red .sx-show .sxroll a.active,
+.skin.red .swiper-pagination-bullet-active{
+  background:#d03e3a
+}
+.skin.red .c-title .sx-left,
+.skin.red .c-title .sx-right,
+.skin.red .sx-show .type,
+.skin.red .label-blue {
+  border:1px solid #d03e3a;
+}
+.skin.red .label-blue {color:#d03e3a;}
+/* skin-green */
+.skin.green header,
+.skin.green .sub-header .sub-class a > em,
+.skin.green .b-title > .blues ,
+.skin.green .c-title .active,
+.skin.green .sx-show .sxroll a.active,
+.skin.green .swiper-pagination-bullet-active{
+  background:#778e1b
+}
+.skin.green .c-title .sx-left,
+.skin.green .c-title .sx-right,
+.skin.green .sx-show .type,
+.skin.green .label-blue {
+  border:1px solid #778e1b;
+}
+.skin.green .label-blue {color:#778e1b;}
