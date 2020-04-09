@@ -1,5 +1,4 @@
 import React,{Component} from 'react';
-import { NavLink } from 'react-router-dom';
 import Header from '@/components/Header'
 import {
   PlayerUrl,
@@ -11,13 +10,17 @@ import Error from '@/components/Error'
 import PlayPath from '@/components/Player/PlayPath'
 import More from '@/components/Player/More'
 import HotList from '@/components/Player/HotList'
+import Favorites from '@/components/Player/Favorites'
+import Popup from '@/components/Popup'
 export default class Player extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: {},
       id: props.match.params.id,
-      status: 3
+      status: 3,
+      message: '',
+      open:false,
     }
   }
 
@@ -31,9 +34,8 @@ export default class Player extends Component {
     document.getElementsByTagName('meta')['description'].content = data.profiles.substring(0, 52)
   }
 
-  sum (m, n) {
-    var num = Math.floor(Math.random() * (m - n) + n);
-    return num
+  openPopup(cb) {
+    this.setState(cb)
   }
 
   componentDidMount(){
@@ -59,42 +61,12 @@ export default class Player extends Component {
           <div>
             <Header menu={data.menu} menumore={data.menumore} />
             <section className="content has-header">
-              {/* 收藏开始 */}
-              <div>
-                <div className="block catalog">
-                  <div className="row f11 text-left h88">
-                    <div className="col" >
-                      <div className="row" style={{'align-items':'center'}}>
-                        <div className="col col-33 ">
-                          <i className="iconp icon-digg-up"></i>
-                        </div>
-                        <span className="col">{this.sum(34,999)}</span>
-                      </div>
-                    </div>
-                    <div className="col" >
-                      <div className="row" style={{'align-items':'center'}}>
-                        <div className="col col-33 ">
-                          <i className="iconp icon-digg-down"></i>
-                        </div>
-                        <span className="col">{this.sum(34,230)}</span>
-                      </div>
-                    </div>
-                    <NavLink className="col" to="/">
-                      <div className="row" style={{'align-items':'center'}}>
-                        <div className="col col-33 ">
-                          <i className="iconp icon-favorites"></i>
-                        </div>
-                        <span className="col">收藏</span>
-                      </div>
-                    </NavLink>
-                  </div>
-                </div>
-              </div>
-              {/* 收藏结束 */}
+              <Favorites data={data} openPopup={this.openPopup.bind(this)} />
               <PlayPath data={data.play_path} />
               <HotList data={data.hotlist} />
               <More data={data} />
             </section>
+            <Popup message={this.state.message} status={this.state.open} openPopup={this.openPopup.bind(this)} />
           </div>
           :
           <Error data={data} />

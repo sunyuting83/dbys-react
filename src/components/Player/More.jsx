@@ -54,7 +54,7 @@ export default class More extends Component {
                       <NavLink to={`/tags/area/${x.id}/${x.a_name}`} className="h88">{x.a_name}</NavLink>
                     ))}
                     </div>
-                    <div className="col">语言：{data.languarge[0]}</div>
+                    <div className="col">语言：{data.languarge}</div>
                   </div>
               </div>
           </div>
