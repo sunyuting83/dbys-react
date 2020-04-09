@@ -1,7 +1,10 @@
 import React,{Component} from 'react';
 import { NavLink } from 'react-router-dom';
 import Header from '@/components/Header'
-import {PlayerUrl} from '@/components/config'
+import {
+  PlayerUrl,
+  GlobalTitle,
+  Pkey} from '@/components/config'
 import HttpServer from '@/components/fetch'
 import Error from '@/components/Error'
 
@@ -23,7 +26,9 @@ export default class Player extends Component {
     this.setState({
       data: data
     })
-    document.title = data.title
+    document.title = `${GlobalTitle} - ${data.title}-在线观看,免费观看`
+    document.getElementsByTagName('meta')['keywords'].content = Pkey(data.title)
+    document.getElementsByTagName('meta')['description'].content = data.profiles.substring(0, 52)
   }
 
   sum (m, n) {

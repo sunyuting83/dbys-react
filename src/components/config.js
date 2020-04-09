@@ -10,9 +10,21 @@ const PlayerUrl = (b) => {
   return `${RootUrl}getmovie?id=${b}`
 }
 
+const Keywords = '爱看影视,最新电影,高清电影,免费电影,在线电影,最新电视剧,电影下载,免费下载'
+const Description = '爱看影视专注高清,为广大用户提供全网最高清在线观看体验,每天更新大量电影电视剧,无论是国产,欧美剧,韩剧,日剧,国漫,日漫,只要用户需要,大多数情况下都会更新!'
+const GlobalTitle = '爱看影视'
+
+const Pkey = (title) => {
+  return `${title}在线观看,${title}在线播放,${title}百度网盘,${title}剧情简介`
+}
+
 export {
   IndexUrl,
   RootUrl,
   DetailUrl,
-  PlayerUrl
+  PlayerUrl,
+  Keywords,
+  Description,
+  GlobalTitle,
+  Pkey
 }

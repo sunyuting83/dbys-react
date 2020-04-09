@@ -3,7 +3,11 @@ import Header from '@/components/Header'
 import Swiper from '@/components/swipe'
 import Notice from '@/components/Notice'
 import IndexList from '@/components/indexlist'
-import {IndexUrl} from '@/components/config'
+import {
+  IndexUrl,
+  Keywords,
+  Description,
+  GlobalTitle} from '@/components/config'
 import HttpServer from '@/components/fetch'
 import Error from '@/components/Error'
 export default class Home extends Component {
@@ -26,6 +30,9 @@ export default class Home extends Component {
   }
 
   componentDidMount(){
+    document.title = `${GlobalTitle} - 最新电影,高清电影,免费电影,在线电影,最新电视剧`
+    document.getElementsByTagName('meta')['keywords'].content = Keywords
+    document.getElementsByTagName('meta')['description'].content = Description
     let cache = localStorage.getItem('index');
     if(cache === null) {
       this.getData();

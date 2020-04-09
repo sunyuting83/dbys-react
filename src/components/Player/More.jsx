@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom'
 import DefaultImg from '@/components/defaultImg'
 export default class More extends Component {
   constructor(props) {

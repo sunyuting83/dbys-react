@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { Component } from 'react'
+import { NavLink } from 'react-router-dom'
 import Swiper from 'Swiper'
+import DefaultImg from '@/components/defaultImg'
 
 class indexSwiper extends Component {
   constructor(props) {
@@ -36,8 +37,8 @@ class indexSwiper extends Component {
             <div className='swiper-wrapper'>
               {swiper.length > 0 && swiper.map((s, i) => (
                 <div className="swiper-slide"  key={i}>
-                  <NavLink to={`detail/${s.url}`}>
-                    <img src={s.img} className="swiper-img" alt={s.title} />
+                  <NavLink to={`/player/${s.id}`}>
+                    <DefaultImg src={s.img} name="swiper-img" alt={s.title} />
                     <div className="swiper-word">
                       {s.title}
                     </div>

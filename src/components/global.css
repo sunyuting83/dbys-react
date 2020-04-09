@@ -691,8 +691,10 @@ header .header-right .icon-vip {
   position: relative;
   height: 10.0rem;
   overflow: hidden;
+  display: flex;
+  align-items: center
 }
-.movie > .movie-img > img {width: 100%}
+.movie > .movie-img > img {align-items: center}
 .movie > .movie-img > em {
   position: absolute;
   bottom: 0;
