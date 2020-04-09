@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import Swiper from 'Swiper'
-import '@/components/mySwiper.css'
 
 class indexSwiper extends Component {
   constructor(props) {

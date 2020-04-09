@@ -18,7 +18,7 @@ export default class indexList extends Component {
             <div className="catalog">
               <div className="row">
                 <div className="col col-10">
-                  <span className="title-icon user-sishoucang"></span>
+                  <span className={"title-icon user-sishoucang " + s.other}></span>
                 </div>
                 <div className="col col-70 b-title">
                   {s.c_name}

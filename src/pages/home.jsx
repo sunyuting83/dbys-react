@@ -46,7 +46,7 @@ export default class Home extends Component {
   render() {
     const {data} = this.state
     return (
-      <div>
+      <div className="skin">
         {data.status === 0?
           <div>
             <Header menu={data.menu} menumore={data.menumore} />

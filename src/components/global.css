@@ -410,6 +410,7 @@ header .header-right .icon-vip {
   display: flex;
   width: 100%;
   box-sizing:border-box;
+  align-items: center
 }
 
 .row-wrap {
@@ -625,6 +626,7 @@ header .header-right .icon-vip {
 .b-title {
   font-size: 1.07rem;
   text-align: left;
+  font-weight: bold;
 }
 
 .b-title > .blues {
@@ -1759,3 +1761,46 @@ html.with-statusbar-overlay .popup.tablet-fullscreen {
   font-size: 0.8rem;
   width: auto;
 }
+/*swiper*/
+.swiper-container {
+  width: 100%;
+  height: 13.75rem;
+  margin-bottom: 0.77rem;
+}
+.swiper-container .swiper-img {height: 100%;display: block;min-width:100%}
+.swiper-container .swiper-word {
+position: absolute;
+bottom: 0;
+width: 100%;
+background:rgba(0,0,0,.7);
+font-size: 18px;
+height: 2.36rem;
+line-height: 2.36rem;
+color:#fff;
+text-align: left;
+font-size: 0.923077rem;
+padding:0 0.77rem;
+}
+
+.swiper-container-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+bottom:0.56rem;
+text-align: right;
+z-index: 999;
+}
+.swiper-container-horizontal>.swiper-pagination-bullets {
+padding-right: 0.38rem;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+}
+.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+margin:0 0.13rem
+}
+.swiper-pagination-bullet {
+width: 0.38rem;
+height: 0.38rem;
+border-radius: 100%;
+background:#fff;
+}
+.swiper-pagination-bullet-active {background:#3097fd;}
