@@ -21,7 +21,7 @@ export default class Header extends Component {
   }
   render() {
     const {showmore, menu, menumore, title} = this.state
-    console.log(title)
+    // console.log(title)
     return (
       <div>
         <header>

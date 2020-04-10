@@ -5,7 +5,7 @@ export default class Player extends Component {
 
   render() {
     const {type, path, status} = this.props
-    console.log(path)
+    // console.log(path)
 	  return (
       <div>
         {status?

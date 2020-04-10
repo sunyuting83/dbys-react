@@ -588,6 +588,7 @@ header .icon.icon-back {
   -o-box-sizing: border-box;
   font-size: 0px;
   text-align: left;
+  padding:0.3125rem 0;
 }
 
 .d-col {
