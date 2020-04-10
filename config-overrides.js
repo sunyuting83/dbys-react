@@ -15,7 +15,7 @@ module.exports = override(
         Swiper: "window.Swiper",
         iScroll: "window.JRoll",
         'react-router-dom':"window.ReactRouterDOM",
-        Hls: "window.hls",
+        'hls.js': "window.Hls",
         'dplayer': 'window.DPlayer',
         'react-dplayer': 'window.ReactDPlayer'
       },
@@ -27,7 +27,7 @@ module.exports = override(
       Swiper: "window.Swiper",
       iScroll: "window.JRoll",
       'react-router-dom':"window.ReactRouterDOM",
-      Hls: "window.hls",
+      'hls.js': "window.Hls",
       'dplayer': 'window.DPlayer',
       'react-dplayer': 'window.ReactDPlayer'
     }

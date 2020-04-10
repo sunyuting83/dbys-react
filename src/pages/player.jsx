@@ -12,22 +12,46 @@ import More from '@/components/Player/More'
 import HotList from '@/components/Player/HotList'
 import Favorites from '@/components/Player/Favorites'
 import Popup from '@/components/Popup'
+import Play from '@/components/Player/Player'
+
+let timeo
 export default class Player extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: {},
       id: props.match.params.id,
-      status: 3,
       message: '',
       open:false,
+      playpath:'',
+      playtype:'hls',
+      playstatus:true
     }
   }
 
   async getData(url) {
-    let data = await HttpServer(url)
+    const data = await HttpServer(url)
+        , has = data.play_path.hasOwnProperty('hls')
+    let playpath = '', playtype = ''
+    if(has) {
+      if(data.play_path.more) {
+        playpath = data.play_path.hls[0][0].path
+      }else{
+        playpath = data.play_path.hls[0].path
+      }
+      playtype = 'hls'
+    }else{
+      if(data.play_path.more) {
+        playpath = data.play_path.player[0][0].path
+      }else {
+        playpath = data.play_path.player[0].path
+      }
+      playtype = 'play'
+    }
     this.setState({
-      data: data
+      data: data,
+      playpath: playpath,
+      playtype: playtype
     })
     document.title = `${GlobalTitle} - ${data.title}-在线观看,免费观看`
     document.getElementsByTagName('meta')['keywords'].content = Pkey(data.title)
@@ -37,7 +61,20 @@ export default class Player extends Component {
   openPopup(cb) {
     this.setState(cb)
   }
-
+  changePlay(cb) {
+    if(this.state.playpath !== cb.path) {
+      this.setState({
+        playstatus: false
+      })
+      timeo = setTimeout(()=>{
+        this.setState({
+          playpath: cb.path,
+          playtype: cb.type,
+          playstatus: true
+        })
+      },100)
+    }
+  }
   componentDidMount(){
     const url = PlayerUrl(this.state.id)
     this.getData(url)
@@ -46,23 +83,29 @@ export default class Player extends Component {
     let nextid = nextProps.match.params.id
     if (nextid !== this.state.id) {
       this.setState({
-        status: 3,
+        data: {
+          status: 3
+        },
         id: nextid
       })
       const url = PlayerUrl(nextid)
       this.getData(url)
     }
   }
+  componentWillUnmount(){
+    clearTimeout(timeo)
+  }
   render() {
-    const {data, message, open} = this.state
+    const {data, message, open, playpath, playtype, playstatus} = this.state
     return (
       <div className="skin red">
         {data.status === 0?
           <div>
-            <Header menu={data.menu} menumore={data.menumore} />
+            <Header menu={data.menu} menumore={data.menumore} title={data.title} />
             <section className="content has-header">
+              <Play path={playpath} type={playtype} status={playstatus} />
               <Favorites data={data} openPopup={this.openPopup.bind(this)} />
-              <PlayPath data={data.play_path} />
+              <PlayPath data={data.play_path} callback={this.changePlay.bind(this)} />
               <HotList data={data.hotlist} />
               <More data={data} />
             </section>

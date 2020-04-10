@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '@/components/icons/logo.png'
+import Back from '@/components/back'
 
 export default class Header extends Component {
   constructor(props) {
@@ -8,26 +9,36 @@ export default class Header extends Component {
     this.state = {
       showmore: false,
       menu: props.menu,
-      menumore: props.menumore
+      menumore: props.menumore,
+      title: props.title
     }
   }
   toggle(){
     this.setState({showmore:!this.state.showmore})
   }
+  setSkin(){
+    localStorage.setItem('skin', 'green')
+  }
   render() {
-    const {showmore, menu, menumore} = this.state
+    const {showmore, menu, menumore, title} = this.state
+    console.log(title)
     return (
       <div>
         <header>
+          {title?<Back />:
           <div className="logo">
             <Link to="/">
               <img src={logo} alt="title" />
             </Link>
           </div>
-          <div className="header-right">
+          }
+          {title?
+          <div className="title">{title}</div>:null
+          }
+          <div className="header-item">
             <span className="icon icon-search"></span>
             <span className="icon icon-history"></span>
-            <span className="icon icon-vip"></span>
+            <span className="icon icon-vip" onClick={this.setSkin.bind(this)}></span>
           </div>
         </header>
         <div className="sub-header">

@@ -208,7 +208,7 @@ header > .logo a {
 header > .logo img {height: 100%;}
 header > .title {
   display: block;
-  text-align: center;
+  text-align: left;
   font-size: 1.076923rem;
   font-weight: inherit;
   margin-bottom: 0;
@@ -218,8 +218,8 @@ header > .title {
 }
 header .icon {
   display: inline-block;
-  width: 0.71875rem;
-  height: 0.71875rem;
+  width: 1.69rem;
+  height: 1.69rem;
 }
 header .hs-search {
     height: 1.84rem;
@@ -259,34 +259,41 @@ header .hs-search > em {
   position: absolute;
 }
 
-header .header-right {
+header .header-item {
   height: 2.93rem;
+  display: flex;
+  justify-content: center
 }
-header .header-right .icon,
-header .header-right .words {
+header .header-item .icon,
+header .header-item .words {
   display: inline-block;
   margin-right: 0.76rem;
   height: 1.69rem;
   margin-top:0.61rem;
 }
-header .header-right .icon {
+header .header-item .icon {
   width: 1.69rem;
+  justify-content: center
 }
-header .header-right .words {
+header .header-item .words {
   line-height: 1.69rem;
   color:#fff;
   vertical-align: top;
   font-size: 1rem;
 }
 
-header .header-right .icon-search {
+header .icon.icon-search {
   background-position: 0 -3.38rem;
 }
-header .header-right .icon-history {
+header .icon.icon-history {
   background-position: -1.69rem -3.38rem;
 }
-header .header-right .icon-vip {
+header .icon.icon-vip {
   background-position: -11.84rem -5.07rem;
+}
+header .icon.icon-back {
+  background-position: -10.14rem -3.38rem;
+  margin-left: 0.76rem;
 }
 
 
@@ -571,6 +578,36 @@ header .header-right .icon-vip {
 }
 
 
+.d-row {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  font-size: 0px;
+  text-align: left;
+}
+
+.d-col {
+  display: inline-block;
+  width: auto;
+  padding: 0.25rem;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  position: relative;
+  text-align: center;
+}
+
+.d-15 .d-col {
+  min-width: 15%;
+  margin-right: 3%;
+}
+
 /*block*/
 .block {
   background:#fff;
@@ -816,7 +853,7 @@ header .header-right .icon-vip {
 .ticon-yidali {background-position: -8.46rem -1.69rem}
 .ticon-sport {background-position: -13.61rem 0}
 .ticon-porn {background-position: -6.84rem -1.69rem}
-.ticon-play {background-position: -6.76rem -5.07rem}
+.ticon-play {background-position: -13.52rem -5.07rem}
 
 /*播放页图标*/
 .iconp {
@@ -862,10 +899,11 @@ header .header-right .icon-vip {
 }
 .label-blue {
   border-radius: 3px;
-  width: 100%;
   display: block;
   font-size: 1.0rem;
-  padding:0.38rem 0;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  margin-right: 0.5rem
 }
 
 /*text-color*/
@@ -959,6 +997,46 @@ header .header-right .icon-vip {
 .success {
     -webkit-animation: fadeIn 01s ease 0.2s 1 both;
     animation: fadeIn 1s ease 0.2s 1 both;
+}
+
+.inner,
+.inner ul.list {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row nowrap;
+  -moz-flex-flow: row nowrap;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+}
+
+.inner>ul.list {
+  -webkit-flex-shrink: 0;
+  -moz-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  padding: 0 .4rem;
+  background: #fff
+}
+
+.inner ul.list li {
+  -webkit-flex-shrink: 0;
+  -moz-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  position: relative;
+}
+.inner ul.list li>span {
+  display: inline-block;
+  padding: 0 0.61rem;
+  height: 2.31rem;
+  flex-grow: 2;
+  flex-basis: 0;
+  line-height: 2.31rem;
+  font-size: 1.07rem;
+  position: relative;
 }
 
 @-webkit-keyframes fadeIn {
@@ -1812,7 +1890,11 @@ height: 0.38rem;
 border-radius: 100%;
 background:#fff;
 }
-
+.playbg {
+  background:url('https://image.suning.cn/uimg/ZR/share_order/158631632458352215.jpg');
+  width:100%;
+  height: 14.1994rem
+}
 /* skin-blue */
 .skin.blue header,
 .skin.blue .sub-header .sub-class a > em,
@@ -1845,6 +1927,10 @@ background:#fff;
   border:1px solid #d03e3a;
 }
 .skin.red .label-blue {color:#d03e3a;}
+.skin.red .label-blue.acitve {
+  background: #d03e3a;
+  color: #fff
+}
 /* skin-green */
 .skin.green header,
 .skin.green .sub-header .sub-class a > em,

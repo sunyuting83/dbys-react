@@ -34,7 +34,8 @@ export default class Popup extends Component {
           </div>
           <div className="modal-buttons ">
             <span className="modal-button" onClick={this.closePopup.bind(this)}>取消</span>
-            <span className="modal-button modal-button-bold" onClick={this.closePopup.bind(this)}>确定</span></div>
+            <span className="modal-button modal-button-bold" onClick={this.closePopup.bind(this)}>确定</span>
+          </div>
         </div>
       </div>
     )

@@ -25,7 +25,9 @@ export default class indexList extends Component {
                   {s.c_name}
                 </div>
                 <div className="col col-20 f13 text-right">
-                  更多
+                  <NavLink to={'/list/'+s.id}>
+                    更多
+                  </NavLink>
                 </div>
               </div>
             </div>

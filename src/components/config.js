@@ -2,12 +2,23 @@ const RootUrl = 'http://127.0.0.1:5002/api/'
 
 const IndexUrl = `${RootUrl}index`
 
-const DetailUrl = (b) => {
-  b = Buffer.from(b, 'base64').toString('utf8')
-  return `${IndexUrl}${b}.htm`
+const ListUrl = (b,p) => {
+  if(!p) p = 1
+  return `${RootUrl}list?cid=${b}&page=${p}`
 }
 const PlayerUrl = (b) => {
   return `${RootUrl}getmovie?id=${b}`
+}
+
+const getSkin = () => {
+  let s = ''
+  const skin = localStorage.getItem('skin')
+  if(skin) {
+    s = skin
+  }else{
+    s = 'red'
+  }
+  return s
 }
 
 const Keywords = '爱看影视,最新电影,高清电影,免费电影,在线电影,最新电视剧,电影下载,免费下载'
@@ -21,10 +32,11 @@ const Pkey = (title) => {
 export {
   IndexUrl,
   RootUrl,
-  DetailUrl,
+  ListUrl,
   PlayerUrl,
   Keywords,
   Description,
   GlobalTitle,
-  Pkey
+  Pkey,
+  getSkin
 }
