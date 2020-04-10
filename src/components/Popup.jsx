@@ -22,14 +22,13 @@ export default class Popup extends Component {
       open:false,
       message:''
     })
-    console.log(this.state)
   }
   render() {
     const {status,message} = this.state
     return (
       <div>
         <div className={status?"modal-overlay modal-overlay-visible":"modal-overlay"}></div>
-        <div className={status?"modal modal-in":"modal modal-out"} style={status?{display: 'block', marginTop: '-59px'}:null}>
+        <div className={status?"modal modal-in":"modal modal-out"} style={{display: 'block', marginTop: '-59px'}}>
           <div className="modal-inner">
             <div className="modal-text">{message}</div>
           </div>

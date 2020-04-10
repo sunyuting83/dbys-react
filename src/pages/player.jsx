@@ -54,7 +54,7 @@ export default class Player extends Component {
     }
   }
   render() {
-    const {data} = this.state
+    const {data, message, open} = this.state
     return (
       <div className="skin red">
         {data.status === 0?
@@ -66,7 +66,7 @@ export default class Player extends Component {
               <HotList data={data.hotlist} />
               <More data={data} />
             </section>
-            <Popup message={this.state.message} status={this.state.open} openPopup={this.openPopup.bind(this)} />
+            <Popup message={message} status={open} openPopup={this.openPopup.bind(this)} />
           </div>
           :
           <Error data={data} />
