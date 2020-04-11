@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import Swiper from 'Swiper'
-import DefaultImg from '@/components/defaultImg'
 
 class indexSwiper extends Component {
   constructor(props) {
@@ -15,7 +14,7 @@ class indexSwiper extends Component {
     new Swiper('.swiper-container', {
       loop: true,
       autoplay: {
-        delay: 4000,
+        delay: 5000,
         stopOnLastSlide: false,
         disableOnInteraction: false
       },
@@ -38,7 +37,7 @@ class indexSwiper extends Component {
               {swiper.length > 0 && swiper.map((s, i) => (
                 <div className="swiper-slide"  key={i}>
                   <NavLink to={`/player/${s.id}`}>
-                    <DefaultImg src={s.img} name="swiper-img" alt={s.title} />
+                    <img src={s.img} className="swiper-img" alt={s.title} />
                     <div className="swiper-word">
                       {s.title}
                     </div>

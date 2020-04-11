@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React,{Component} from 'react'
 import Header from '@/components/Header'
 import Swiper from '@/components/swipe'
 import Notice from '@/components/Notice'
@@ -10,14 +10,14 @@ import {
   GlobalTitle} from '@/components/config'
 import HttpServer from '@/components/fetch'
 import Error from '@/components/Error'
-export default class Home extends Component {
+import { Store } from '@/pages/root'
+class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: {}
     }
   }
-
   async getData() {
     let data = await HttpServer(IndexUrl)
     this.setState({
@@ -30,6 +30,7 @@ export default class Home extends Component {
   }
 
   componentDidMount(){
+    console.log(this.props.data)
     document.title = `${GlobalTitle} - 最新电影,高清电影,免费电影,在线电影,最新电视剧`
     document.getElementsByTagName('meta')['keywords'].content = Keywords
     document.getElementsByTagName('meta')['description'].content = Description
@@ -53,10 +54,10 @@ export default class Home extends Component {
   render() {
     const {data} = this.state
     return (
-      <div className="skin red">
+      <div className={"skin " + this.props.data.skin}>
         {data.status === 0?
           <div>
-            <Header menu={data.menu} menumore={data.menumore} />
+            <Header menu={data.menu} menumore={data.menumore} setSkin={this.props.setSkin} />
             <section className="content has-header">
               <Swiper data={data.swiper} />
               <Notice data={data.notice} />
@@ -70,3 +71,4 @@ export default class Home extends Component {
     )
   }
 }
+export default Store(Home)

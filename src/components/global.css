@@ -184,7 +184,7 @@ header {
   width: 100%;
   height: 2.93rem;
   border-bottom: 1px solid #ddd;
-  z-index: 99;
+  z-index: 101;
   transition: all .3s ease;
   display: -webkit-flex; /* Safari */
   display: flex;
@@ -196,16 +196,23 @@ header {
   box-sizing: border-box;
 }
 header > .logo {
-    display: block;
-    height: 2.30rem;
-    margin: 0.23rem 0.76rem 0 0.67rem;
-}
-header > .logo a {
   display: block;
-  width: 100%;
-  height: 100%;
+  height: 2.30rem;
+  margin: 0.23rem 0.76rem 0 0.67rem;
+  color: #fff;
+  font-size: 1rem;
+  line-height: 2.30rem;
 }
-header > .logo img {height: 100%;}
+header > .logo span {
+  font-weight: bold}
+header > .logo em {
+  background: #f09439;
+  color: #000;
+  padding: 0 0.35rem;
+  border-radius: 0.25rem;
+  font-size: 0.9375rem;
+  font-weight: bold;
+}
 header > .title {
   display: block;
   text-align: left;
@@ -222,30 +229,30 @@ header .icon {
   height: 1.69rem;
 }
 header .hs-search {
-    height: 1.84rem;
-    max-height: 1.84rem;
-    flex-grow: 2;
-    flex-basis:0;
-    background:#fff;
-    border-radius: 2.307692rem;
-    line-height: 1.84rem;
-    margin-right: 0.67rem;
-    border:none;
-    overflow: hidden;
-    position: relative;
+  height: 1.84rem;
+  max-height: 1.84rem;
+  flex-grow: 2;
+  flex-basis:0;
+  background:#fff;
+  border-radius: 2.307692rem;
+  line-height: 1.84rem;
+  margin-right: 0.67rem;
+  border:none;
+  overflow: hidden;
+  position: relative;
 }
 header .hs-search > input[name="search"] {
-    height: 1.84rem;
-    max-height: 1.84rem;
-    background:#fff;
-    line-height: 1.84rem;
-    width: 100%;
-    text-align: left;
-    border:none;
-    display: inline-block;
-    padding-left: 1.77rem;
-    box-sizing: border-box;
-    font-size: 0.92rem;
+  height: 1.84rem;
+  max-height: 1.84rem;
+  background:#fff;
+  line-height: 1.84rem;
+  width: 100%;
+  text-align: left;
+  border:none;
+  display: inline-block;
+  padding-left: 1.77rem;
+  box-sizing: border-box;
+  font-size: 0.92rem;
 }
 header .hs-search > em {
   display: inline-block;
@@ -294,6 +301,30 @@ header .icon.icon-vip {
 header .icon.icon-back {
   background-position: -10.14rem -3.38rem;
   margin-left: 0.76rem;
+}
+.choose_skin {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  height: 2.73rem;
+  background: #fff;
+  transition-duration: 400ms;
+  z-index: 100
+}
+.choose_skin.active {top: 2.93rem}
+.choose_skin .col {justify-content:center;display: flex}
+.choose_skin em {
+  display: flex;
+  width: 1.25rem;
+  height: 1.25rem;
+  justify-content:center;
+  align-items:center;
+}
+.choose_skin em > i {
+  display: block;
+  width: 0.4375rem;
+  height: 0.4375rem;
+  background:#fff
 }
 
 
@@ -902,9 +933,8 @@ header .icon.icon-back {
   border-radius: 3px;
   display: block;
   font-size: 1.0rem;
-  padding: 0.5rem;
-  box-sizing: border-box;
-  margin-right: 0.5rem
+  padding: 0.4rem;
+  box-sizing: border-box
 }
 
 /*text-color*/
@@ -1029,7 +1059,7 @@ header .icon.icon-back {
   flex-shrink: 0;
   position: relative;
 }
-.inner ul.list li>span {
+.inner ul.list li span {
   display: inline-block;
   padding: 0 0.61rem;
   height: 2.31rem;
@@ -1038,6 +1068,7 @@ header .icon.icon-back {
   line-height: 2.31rem;
   font-size: 1.07rem;
   position: relative;
+  margin-right: 0.5rem
 }
 
 @-webkit-keyframes fadeIn {
@@ -1903,15 +1934,19 @@ background:#fff;
 .skin.blue .c-title .active,
 .skin.blue .sx-show .sxroll a.active,
 .skin.blue .swiper-pagination-bullet-active{
-  background:#3097fd
+  background:#2095f2
 }
 .skin.blue .c-title .sx-left,
 .skin.blue .c-title .sx-right,
 .skin.blue .sx-show .type,
 .skin.blue .label-blue {
-  border:1px solid #3097fd;
+  border:1px solid #2095f2;
 }
-.skin.red .label-blue {color:#3097fd;}
+.skin.blue .label-blue {color:#2095f2;}
+.skin.blue .label-blue.acitve {
+  background: #2095f2;
+  color: #fff
+}
 /* skin-red */
 .skin.red header,
 .skin.red .sub-header .sub-class a > em,
@@ -1919,17 +1954,17 @@ background:#fff;
 .skin.red .c-title .active,
 .skin.red .sx-show .sxroll a.active,
 .skin.red .swiper-pagination-bullet-active{
-  background:#d03e3a
+  background:#ea4861
 }
 .skin.red .c-title .sx-left,
 .skin.red .c-title .sx-right,
 .skin.red .sx-show .type,
 .skin.red .label-blue {
-  border:1px solid #d03e3a;
+  border:1px solid #ea4861;
 }
-.skin.red .label-blue {color:#d03e3a;}
+.skin.red .label-blue {color:#ea4861;}
 .skin.red .label-blue.acitve {
-  background: #d03e3a;
+  background: #ea4861;
   color: #fff
 }
 /* skin-green */
@@ -1939,12 +1974,136 @@ background:#fff;
 .skin.green .c-title .active,
 .skin.green .sx-show .sxroll a.active,
 .skin.green .swiper-pagination-bullet-active{
-  background:#778e1b
+  background:#219587
 }
 .skin.green .c-title .sx-left,
 .skin.green .c-title .sx-right,
 .skin.green .sx-show .type,
 .skin.green .label-blue {
-  border:1px solid #778e1b;
+  border:1px solid #219587;
 }
-.skin.green .label-blue {color:#778e1b;}
+.skin.green .label-blue {color:#219587;}
+.skin.green .label-blue.acitve {
+  background: #219587;
+  color: #fff
+}
+/* skin-violet */
+.skin.violet header,
+.skin.violet .sub-header .sub-class a > em,
+.skin.violet .b-title > .blues ,
+.skin.violet .c-title .active,
+.skin.violet .sx-show .sxroll a.active,
+.skin.violet .swiper-pagination-bullet-active{
+  background:#3f56b4
+}
+.skin.violet .c-title .sx-left,
+.skin.violet .c-title .sx-right,
+.skin.violet .sx-show .type,
+.skin.violet .label-blue {
+  border:1px solid #3f56b4;
+}
+.skin.violet .label-blue {color:#3f56b4;}
+.skin.violet .label-blue.acitve {
+  background: #3f56b4;
+  color: #fff
+}
+/* skin-orange */
+.skin.orange header,
+.skin.orange .sub-header .sub-class a > em,
+.skin.orange .b-title > .blues ,
+.skin.orange .c-title .active,
+.skin.orange .sx-show .sxroll a.active,
+.skin.orange .swiper-pagination-bullet-active{
+  background:#ff993d
+}
+.skin.orange .c-title .sx-left,
+.skin.orange .c-title .sx-right,
+.skin.orange .sx-show .type,
+.skin.orange .label-blue {
+  border:1px solid #ff993d;
+}
+.skin.orange .label-blue {color:#ff993d;}
+.skin.orange .label-blue.acitve {
+  background: #ff993d;
+  color: #fff
+}
+/* skin-dorange */
+.skin.dorange header,
+.skin.dorange .sub-header .sub-class a > em,
+.skin.dorange .b-title > .blues ,
+.skin.dorange .c-title .active,
+.skin.dorange .sx-show .sxroll a.active,
+.skin.dorange .swiper-pagination-bullet-active{
+  background:#fd583d
+}
+.skin.dorange .c-title .sx-left,
+.skin.dorange .c-title .sx-right,
+.skin.dorange .sx-show .type,
+.skin.dorange .label-blue {
+  border:1px solid #fd583d;
+}
+.skin.dorange .label-blue {color:#fd583d;}
+.skin.dorange .label-blue.acitve {
+  background: #fd583d;
+  color: #fff
+}
+/* skin-grey */
+.skin.grey header,
+.skin.grey .sub-header .sub-class a > em,
+.skin.grey .b-title > .blues ,
+.skin.grey .c-title .active,
+.skin.grey .sx-show .sxroll a.active,
+.skin.grey .swiper-pagination-bullet-active{
+  background:#5f7b89
+}
+.skin.grey .c-title .sx-left,
+.skin.grey .c-title .sx-right,
+.skin.grey .sx-show .type,
+.skin.grey .label-blue {
+  border:1px solid #5f7b89;
+}
+.skin.grey .label-blue {color:#5f7b89;}
+.skin.grey .label-blue.acitve {
+  background: #5f7b89;
+  color: #fff
+}
+/* skin-pink */
+.skin.pink header,
+.skin.pink .sub-header .sub-class a > em,
+.skin.pink .b-title > .blues ,
+.skin.pink .c-title .active,
+.skin.pink .sx-show .sxroll a.active,
+.skin.pink .swiper-pagination-bullet-active{
+  background:#c8405d
+}
+.skin.pink .c-title .sx-left,
+.skin.pink .c-title .sx-right,
+.skin.pink .sx-show .type,
+.skin.pink .label-blue {
+  border:1px solid #c8405d;
+}
+.skin.pink .label-blue {color:#c8405d;}
+.skin.pink .label-blue.acitve {
+  background: #c8405d;
+  color: #fff
+}
+/* skin-black */
+.skin.black header,
+.skin.black .sub-header .sub-class a > em,
+.skin.black .b-title > .blues ,
+.skin.black .c-title .active,
+.skin.black .sx-show .sxroll a.active,
+.skin.black .swiper-pagination-bullet-active{
+  background:#373e45
+}
+.skin.black .c-title .sx-left,
+.skin.black .c-title .sx-right,
+.skin.black .sx-show .type,
+.skin.black .label-blue {
+  border:1px solid #373e45;
+}
+.skin.black .label-blue {color:#373e45;}
+.skin.black .label-blue.acitve {
+  background: #373e45;
+  color: #fff
+}

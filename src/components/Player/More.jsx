@@ -58,6 +58,7 @@ export default class More extends Component {
                   </div>
               </div>
           </div>
+          {data.profiles?
           <div className="row">
             <div className={this.state.hideshow?"col f11 text-left h88 contents active":"col f11 text-left h88 contents"} dangerouslySetInnerHTML={{__html: data.profiles}} />
             {this.state.hideshow?
@@ -66,7 +67,10 @@ export default class More extends Component {
               <i className="iconp icon-down"></i>
             </div>}
           </div>
-          {this.state.hideshow?
+          :
+            null
+          }
+          {this.state.hideshow && data.profiles?
           <div className="row">
             <div className="col anniu" onClick={this.setShow.bind(this)}>
               <i className="iconp icon-up"></i>

@@ -3,14 +3,14 @@ import Header from '@/components/Header'
 import {ListUrl, getSkin} from '@/components/config'
 import HttpServer from '@/components/fetch'
 import Error from '@/components/Error'
-import { NavLink } from 'react-router-dom';
-export default class List extends Component {
+import { NavLink } from 'react-router-dom'
+import { Store } from '@/pages/root'
+class List extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: {},
-      id: props.match.params.id,
-      skin: 'red'
+      id: props.match.params.id
     }
   }
 
@@ -42,12 +42,12 @@ export default class List extends Component {
     }
   }
   render() {
-    const {data, skin} = this.state
+    const {data} = this.state
     return (
-      <div className={"skin " + skin}>
+      <div className={"skin " + this.props.data.skin}>
         {data.status === 0?
           <div>
-            <Header menu={data.menu} menumore={data.menumore} title={data.ctitle} />
+            <Header menu={data.menu} menumore={data.menumore} title={data.ctitle} setSkin={this.props.setSkin} />
             <section className="content has-header">
               <div className="block catalog">
                 
@@ -61,3 +61,4 @@ export default class List extends Component {
     )
   }
 }
+export default Store(List)

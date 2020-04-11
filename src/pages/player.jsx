@@ -13,9 +13,10 @@ import HotList from '@/components/Player/HotList'
 import Favorites from '@/components/Player/Favorites'
 import Popup from '@/components/Popup'
 import Play from '@/components/Player/Player'
+import { Store } from '@/pages/root'
 
 let timeo
-export default class Player extends Component {
+class Player extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -55,7 +56,11 @@ export default class Player extends Component {
     })
     document.title = `${GlobalTitle} - ${data.title}-在线观看,免费观看`
     document.getElementsByTagName('meta')['keywords'].content = Pkey(data.title)
-    document.getElementsByTagName('meta')['description'].content = data.profiles.substring(0, 52)
+    if(data.profiles) {
+      document.getElementsByTagName('meta')['description'].content = data.profiles.substring(0, 52)
+    }else{
+      document.getElementsByTagName('meta')['description'].content = Pkey(data.title)
+    }
   }
 
   openPopup(cb) {
@@ -98,10 +103,10 @@ export default class Player extends Component {
   render() {
     const {data, message, open, playpath, playtype, playstatus} = this.state
     return (
-      <div className="skin red">
+      <div className={"skin " + this.props.data.skin}>
         {data.status === 0?
           <div>
-            <Header menu={data.menu} menumore={data.menumore} title={data.title} />
+            <Header menu={data.menu} menumore={data.menumore} title={data.title} setSkin={this.props.setSkin} />
             <section className="content has-header">
               <Play path={playpath} type={playtype} status={playstatus} />
               <Favorites data={data} openPopup={this.openPopup.bind(this)} />
@@ -118,3 +123,4 @@ export default class Player extends Component {
     )
   }
 }
+export default Store(Player)

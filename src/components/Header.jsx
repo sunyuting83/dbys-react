@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import logo from '@/components/icons/logo.png'
+import { NavLink } from 'react-router-dom'
 import Back from '@/components/back'
 
 export default class Header extends Component {
@@ -10,26 +9,75 @@ export default class Header extends Component {
       showmore: false,
       menu: props.menu,
       menumore: props.menumore,
-      title: props.title
+      title: props.title,
+      showskin: false,
+      skinitem: [
+        {
+          color: '#2095f2',
+          name: 'blue'
+        },{
+          color: '#f4433a',
+          name: 'red'
+        },{
+          color: '#219587',
+          name: 'green'
+        },{
+          color: '#3f56b4',
+          name: 'violet'
+        },{
+          color: '#ff993d',
+          name: 'orange'
+        },{
+          color: '#fd583d',
+          name: 'dorange'
+        },{
+          color: '#5f7b89',
+          name: 'grey'
+        },{
+          color: '#c8405d',
+          name: 'pink'
+        },{
+          color: '#373e45',
+          name: 'black'
+        }
+      ],
+      color: 'blue'
     }
   }
   toggle(){
     this.setState({showmore:!this.state.showmore})
   }
-  setSkin(){
-    localStorage.setItem('skin', 'green')
+  setSkin(color){
+    this.setState({
+      color: color
+    })
+    this.props.setSkin(color)
+  }
+  toggleSkin() {
+    this.setState({showskin: !this.state.showskin})
+  }
+  componentDidMount() {
+    let s
+    const skin = localStorage.getItem('skin')
+    if(skin) {
+      s = skin
+    }else{
+      s = 'blue'
+    }
+    this.setState({
+      color: s
+    })
   }
   render() {
-    const {showmore, menu, menumore, title} = this.state
+    const {showmore, menu, menumore, title, skinitem, showskin, color} = this.state
     // console.log(title)
     return (
       <div>
         <header>
           {title?<Back />:
           <div className="logo">
-            <Link to="/">
-              <img src={logo} alt="title" />
-            </Link>
+            <span>爱看</span>
+            <em>影视</em>
           </div>
           }
           {title?
@@ -38,15 +86,26 @@ export default class Header extends Component {
           <div className="header-item">
             <span className="icon icon-search"></span>
             <span className="icon icon-history"></span>
-            <span className="icon icon-vip" onClick={this.setSkin.bind(this)}></span>
+            <span className="icon icon-vip" onClick={this.toggleSkin.bind(this)}></span>
           </div>
         </header>
+        <div className={showskin? "choose_skin row active":"choose_skin row"}>
+          {skinitem && skinitem.length > 0 && skinitem.map(x => 
+            <div 
+              className="col" 
+              onClick={()=>this.setSkin(x.name)}>
+              <em style={{"background":x.color}}>
+                {color === x.name?<i></i>:null}
+              </em>
+            </div>
+          )}
+        </div>
         <div className="sub-header">
           <div className="sub-class">
             <ul>
-              <Link to="/" title="首页" className="active">首页<em></em></Link>
+              <NavLink to="/" title="首页" activeClassName="active">首页<em></em></NavLink>
               {menu.length > 0 && menu.map((s, i) => (
-                <Link to={'/list/'+s.id} key={i}>{s.c_name}<em></em></Link>
+                <NavLink activeClassName="active" to={'/list/'+s.id} key={i}>{s.c_name}<em></em></NavLink>
               ))}
             </ul>
           </div>
@@ -58,10 +117,10 @@ export default class Header extends Component {
         <section className="content class" style={{display:showmore?'block':false}}>
           <div className="block row row-wrap">
             {menumore.length > 0 && menumore.map((s, i) => (
-              <Link to={'/list/'+s.id} className="col col-25 padding-tb15" key={i}>
+              <NavLink to={'/list/'+s.id} className="col col-25 padding-tb15" key={i}>
                 <i className="class-icon cicon-movie"></i>
                 <span>{s.c_name}</span>
-              </Link>
+              </NavLink>
             ))}
           </div>
         </section>
