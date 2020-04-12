@@ -30,7 +30,7 @@ class Home extends Component {
   }
 
   componentDidMount(){
-    console.log(this.props.data)
+    // console.log(this.props.data)
     document.title = `${GlobalTitle} - 最新电影,高清电影,免费电影,在线电影,最新电视剧`
     document.getElementsByTagName('meta')['keywords'].content = Keywords
     document.getElementsByTagName('meta')['description'].content = Description

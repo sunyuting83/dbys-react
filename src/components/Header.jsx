@@ -103,9 +103,9 @@ export default class Header extends Component {
         <div className="sub-header">
           <div className="sub-class">
             <ul>
-              <NavLink to="/" title="首页" activeClassName="active">首页<em></em></NavLink>
+              <NavLink to="/" title="首页" exact activeClassName="active">首页<em></em></NavLink>
               {menu.length > 0 && menu.map((s, i) => (
-                <NavLink activeClassName="active" to={'/list/'+s.id} key={i}>{s.c_name}<em></em></NavLink>
+                <NavLink activeClassName="active" exact to={'/list/'+s.id} key={i}>{s.c_name}<em></em></NavLink>
               ))}
             </ul>
           </div>

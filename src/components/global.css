@@ -1,6 +1,7 @@
 @import url('https://s3.pstatp.com/cdn/expire-1-M/font-awesome/5.8.1/css/fontawesome.min.css');
 @import url('https://s3.pstatp.com/cdn/expire-1-M/Swiper/4.5.0/css/swiper.min.css');
 @import url('https://s1.pstatp.com/cdn/expire-1-M/dplayer/1.25.0/DPlayer.min.css');
+@import url('https://unpkg.zhimg.com/react-animated-router@0.2.3/animate.css');
 a,input {
   outline: 0
 }

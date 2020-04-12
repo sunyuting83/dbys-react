@@ -13,7 +13,7 @@ module.exports = override(
         react: "window.React",
         'react-dom': "window.ReactDOM",
         Swiper: "window.Swiper",
-        iScroll: "window.JRoll",
+        JRoll: "window.JRoll",
         'react-router-dom':"window.ReactRouterDOM",
         'hls.js': "window.Hls",
         'dplayer': 'window.DPlayer',
@@ -22,10 +22,11 @@ module.exports = override(
       config.devtool=false
     }
     config.externals = {
+      'core-js':'window.core-js',
       react: "window.React",
       "react-dom": "window.ReactDOM",
       Swiper: "window.Swiper",
-      iScroll: "window.JRoll",
+      JRoll: "window.JRoll",
       'react-router-dom':"window.ReactRouterDOM",
       'hls.js': "window.Hls",
       'dplayer': 'window.DPlayer',

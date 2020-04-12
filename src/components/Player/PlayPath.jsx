@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import iScroll from 'iScroll'
+import iScroll from 'JRoll'
 import ReactIScroll from 'react-iscroll'
 export default class PlayPath extends Component {
   constructor(props) {
