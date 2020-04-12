@@ -62,7 +62,6 @@ class Player extends Component {
       document.getElementsByTagName('meta')['description'].content = Pkey(data.title)
     }
   }
-
   openPopup(cb) {
     this.setState(cb)
   }
@@ -108,7 +107,7 @@ class Player extends Component {
           <div>
             <Header menu={data.menu} menumore={data.menumore} title={data.title} setSkin={this.props.setSkin} />
             <section className="content has-header">
-              <Play path={playpath} type={playtype} status={playstatus} />
+              <Play path={playpath} type={playtype} status={playstatus} callback={this.setHistory.bind(this)} />
               <Favorites data={data} openPopup={this.openPopup.bind(this)} />
               <PlayPath data={data.play_path} callback={this.changePlay.bind(this)} />
               <HotList data={data.hotlist} />

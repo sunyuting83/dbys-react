@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import Back from '@/components/back'
-import {setHeight} from '@/components/config.js'
+import {setHeight} from '@/components/config'
 
 export default class Header extends Component {
   constructor(props) {

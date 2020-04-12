@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import Hls from "hls.js"
 import DPlayer from "react-dplayer"
 export default class Player extends Component {
-
   render() {
     const {type, path, status} = this.props
     // console.log(path)

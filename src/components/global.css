@@ -901,15 +901,10 @@ header .icon.icon-fav {
   display: block;
 }
 .ticon-hot {background-position: -8.46rem -5.07rem}
-.ticon-tv {background-position: -8.46rem 0}
-.ticon-movie {background-position: -6.76rem 0}
-.ticon-dongman {background-position: -11.84rem 0}
-.ticon-zongyi {background-position: -10.15rem 0}
-.ticon-jilu {background-position: -15.23rem 0}
-.ticon-tiyu {background-position: -13.53rem 0}
-.ticon-yidali {background-position: -8.46rem -1.69rem}
-.ticon-sport {background-position: -13.61rem 0}
-.ticon-porn {background-position: -6.84rem -1.69rem}
+.ticon-t1 {background-position: -8.46rem 0}
+.ticon-t2 {background-position: -6.76rem 0}
+.ticon-t3 {background-position: -11.84rem 0}
+.ticon-t4 {background-position: -10.15rem 0}
 .ticon-play {background-position: -13.52rem -5.07rem}
 
 /*播放页图标*/
@@ -1948,7 +1943,11 @@ border-radius: 100%;
 background:#fff;
 }
 .playbg {
-  background:url('https://image.suning.cn/uimg/ZR/share_order/158631632458352215.jpg');
+  background-image:url('https://image.suning.cn/uimg/ZR/share_order/158631632458352215.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
   width:100%;
   height: 14.1994rem
 }
