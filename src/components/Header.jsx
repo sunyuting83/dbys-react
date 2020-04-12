@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import Back from '@/components/back'
+import {setHeight} from '@/components/config.js'
 
 export default class Header extends Component {
   constructor(props) {
@@ -84,9 +85,10 @@ export default class Header extends Component {
           <div className="title">{title}</div>:null
           }
           <div className="header-item">
-            <span className="icon icon-search"></span>
-            <span className="icon icon-history"></span>
-            <span className="icon icon-vip" onClick={this.toggleSkin.bind(this)}></span>
+            <span className="icon icon-search" onClick={()=>{setHeight(this.props.height)}}></span>
+            <span className="icon icon-history" onClick={()=>{setHeight(this.props.height)}}></span>
+            <span className="icon icon-fav" onClick={()=>{setHeight(this.props.height)}}></span>
+            <span className={showskin?"icon icon-skin active":"icon icon-skin"} onClick={this.toggleSkin.bind(this)}></span>
           </div>
         </header>
         <div className={showskin? "choose_skin row active":"choose_skin row"}>
@@ -103,9 +105,24 @@ export default class Header extends Component {
         <div className="sub-header">
           <div className="sub-class">
             <ul>
-              <NavLink to="/" title="首页" exact activeClassName="active">首页<em></em></NavLink>
+              <NavLink 
+                to="/" 
+                title="首页" 
+                exact 
+                activeClassName="active"
+                onClick={()=>{setHeight(this.props.height)}}>
+                  首页
+                  <em></em>
+              </NavLink>
               {menu.length > 0 && menu.map((s, i) => (
-                <NavLink activeClassName="active" exact to={'/list/'+s.id} key={i}>{s.c_name}<em></em></NavLink>
+                <NavLink 
+                  activeClassName="active" 
+                  to={`/list/${s.id}`} 
+                  key={i}
+                  onClick={()=>{setHeight(this.props.height)}}>
+                    {s.c_name}
+                    <em></em>
+                </NavLink>
               ))}
             </ul>
           </div>
@@ -117,9 +134,13 @@ export default class Header extends Component {
         <section className="content class" style={{display:showmore?'block':false}}>
           <div className="block row row-wrap">
             {menumore.length > 0 && menumore.map((s, i) => (
-              <NavLink to={'/list/'+s.id} className="col col-25 padding-tb15" key={i}>
-                <i className="class-icon cicon-movie"></i>
-                <span>{s.c_name}</span>
+              <NavLink 
+                to={`/list/${s.id}`} 
+                className="col col-25 padding-tb15" 
+                key={i}
+                onClick={()=>{setHeight(this.props.height)}}>
+                  <i className={"class-icon cicon-i"+s.id}></i>
+                  <span>{s.c_name}</span>
               </NavLink>
             ))}
           </div>

@@ -15,8 +15,10 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: {}
+      data: {},
+      scrollTop: 0
     }
+    this.handleScroll = this.handleScroll.bind(this);
   }
   async getData() {
     let data = await HttpServer(IndexUrl)
@@ -27,6 +29,22 @@ class Home extends Component {
       data['ttl'] = Date.now() + 7200000
       localStorage.setItem('index', JSON.stringify(data))
     }
+    this.getHeight()
+  }
+  handleScroll() {
+    let scrollTop = this._container.scrollTop;
+    this.setState({
+      scrollTop: scrollTop
+    })
+  }
+
+  getHeight() {
+    let h = localStorage.getItem('indexheight')
+    if (!h) h = 0
+    setTimeout(()=>{
+      let scroll = this._container
+      scroll.scrollTop = h
+    },100)
   }
 
   componentDidMount(){
@@ -48,20 +66,23 @@ class Home extends Component {
         this.setState({
           data: cache
         })
+        this.getHeight()
       }
     }
   }
   render() {
-    const {data} = this.state
+    const {data, scrollTop} = this.state
     return (
       <div className={"skin " + this.props.data.skin}>
         {data.status === 0?
           <div>
-            <Header menu={data.menu} menumore={data.menumore} setSkin={this.props.setSkin} />
-            <section className="content has-header">
-              <Swiper data={data.swiper} />
+            <Header menu={data.menu} menumore={data.menumore} setSkin={this.props.setSkin}  height={scrollTop} />
+            <section 
+              className="content has-header"
+              ref={c => this._container = c} id="totop" onScrollCapture={() => this.handleScroll()}>
+              <Swiper data={data.swiper} height={scrollTop} />
               <Notice data={data.notice} />
-              <IndexList data={data.movielist} />
+              <IndexList data={data.movielist} height={scrollTop} />
             </section>
           </div>
           :

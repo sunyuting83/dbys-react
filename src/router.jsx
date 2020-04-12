@@ -12,7 +12,7 @@ export default function Main() {
   return (
     <Switch>
       <Route path='/' exact component={Home} />
-      <Route path='/list/:id' exact component={List} />
+      <Route path='/list/:id' component={List} />
       <Route path='/player/:id' component={Player} />
     </Switch>
   );

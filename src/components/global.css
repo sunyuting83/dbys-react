@@ -1,7 +1,6 @@
 @import url('https://s3.pstatp.com/cdn/expire-1-M/font-awesome/5.8.1/css/fontawesome.min.css');
 @import url('https://s3.pstatp.com/cdn/expire-1-M/Swiper/4.5.0/css/swiper.min.css');
 @import url('https://s1.pstatp.com/cdn/expire-1-M/dplayer/1.25.0/DPlayer.min.css');
-@import url('https://unpkg.zhimg.com/react-animated-router@0.2.3/animate.css');
 a,input {
   outline: 0
 }
@@ -303,6 +302,16 @@ header .icon.icon-back {
   background-position: -10.14rem -3.38rem;
   margin-left: 0.76rem;
 }
+header .icon.icon-skin {
+  background-position: -1.69rem -10.14rem;
+}
+header .icon.icon-skin.active {
+  background-position: 0 -10.14rem;
+}
+header .icon.icon-fav {
+  background-position: -3.38rem -10.14rem;
+}
+
 .choose_skin {
   position: absolute;
   width: 100%;
@@ -402,7 +411,7 @@ header .icon.icon-back {
   display: block;
   width: 1.69rem;
   height: 1.69rem;
-  margin-top:0.61rem;
+  margin-top:0.51rem;
 }
 .sub-header .open-class .icon-class {
   background-position: -1.69rem -1.69rem;
@@ -840,36 +849,51 @@ header .icon.icon-back {
 
 /*首页图标*/
 .icon {
-  background:url('https://image.suning.cn/uimg/ZR/share_order/158631632284826503.jpg');
+  background:url('./icons/icon.png');
   margin:0 auto;
   background-size: 16.92rem 50.77rem;
 }
 
 /*分类图标*/
 .class-icon {
-  background:url('https://image.suning.cn/uimg/ZR/share_order/158631632284826503.jpg');
+  background:url('./icons/icon.png');
   margin:0 auto;
   background-size: 26.92rem 80.76rem;
   width: 2.69rem;
   height: 2.69rem;
   display: block;
 }
-.cicon-movie {background-position: -10.76rem 0}
-.cicon-tvshow {background-position: -13.46rem 0}
-.cicon-dongman {background-position: -18.84rem 0}
-.cicon-zongyi {background-position: -16.15rem 0}
-.cicon-jilu {background-position: -24.23rem 0}
-.cicon-sport {background-position: -21.53rem 0}
-.cicon-italia {background-position: -13.46rem -2.69rem}
-.cicon-porn {background-position: -10.76rem -2.69rem}
-.cicon-news {background-position: -16.15rem -8.07rem}
-.cicon-zixun {background-position: -10.76rem -8.07rem}
-.cicon-pc {background-position: -21.53rem -8.07rem}
-.cicon-vip {background-position: -24.23rem -8.07rem}
+.cicon-i5 {background-position: -8.07rem -16.14rem}
+.cicon-i6 {background-position: -10.76rem -16.14rem}
+.cicon-i7 {background-position: -13.45rem -16.14rem}
+.cicon-i8 {background-position: -16.14rem -16.14rem}
+.cicon-i9 {background-position: -18.83rem -16.14rem}
+.cicon-i10 {background-position: -21.52rem -16.14rem}
+.cicon-i11 {background-position: -24.21rem -16.14rem}
+.cicon-i12 {background-position: 0 -18.83rem}
+.cicon-i13 {background-position: -2.69rem -18.83rem}
+.cicon-i14 {background-position: -5.38rem -18.83rem}
+.cicon-i15 {background-position: -8.07rem -18.83rem}
+.cicon-i16 {background-position: -10.76rem -18.83rem}
+.cicon-i17 {background-position: -13.45rem -18.83rem}
+.cicon-i18 {background-position: -16.14rem -18.83rem}
+.cicon-i19 {background-position: -18.83rem -18.83rem}
+.cicon-i20 {background-position: -21.52rem -18.83rem}
+.cicon-i21 {background-position: -24.21rem -18.83rem}
+.cicon-i22 {background-position: 0rem -21.52rem}
+.cicon-i23 {background-position: -2.69rem -21.52rem}
+.cicon-i24 {background-position: -5.38rem -21.52rem}
+.cicon-i25 {background-position: -8.07rem -21.52rem}
+.cicon-i26 {background-position: -10.76rem -21.52rem}
+.cicon-i27 {background-position: -13.45rem -21.52rem}
+.cicon-i28 {background-position: -16.14rem -21.52rem}
+.cicon-i29 {background-position: -18.83rem -21.52rem}
+.cicon-i30 {background-position: -21.52rem -21.52rem}
+.cicon-i31 {background-position: -24.21rem -21.52rem}
 
 /*首页图标*/
 .title-icon {
-  background:url('https://image.suning.cn/uimg/ZR/share_order/158631632284826503.jpg');
+  background:url('./icons/icon.png');
   margin:0 auto;
   background-size: 16.92rem 50.77rem;
   width: 1.69rem;
@@ -890,7 +914,7 @@ header .icon.icon-back {
 
 /*播放页图标*/
 .iconp {
-  background:url('https://image.suning.cn/uimg/ZR/share_order/158631632284826503.jpg');
+  background:url('./icons/icon.png');
   margin:0 auto;
   background-size: 16.92rem 50.77rem;
   width: 1.69rem;

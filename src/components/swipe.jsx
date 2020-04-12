@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import Swiper from 'Swiper'
+import {setHeight} from '@/components/config'
 
 class indexSwiper extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      swiper: this.props.data
+      swiper: props.data
     }
   }
 
@@ -36,7 +37,7 @@ class indexSwiper extends Component {
             <div className='swiper-wrapper'>
               {swiper.length > 0 && swiper.map((s, i) => (
                 <div className="swiper-slide"  key={i}>
-                  <NavLink to={`/player/${s.id}`}>
+                  <NavLink to={`/player/${s.id}`} onClick={()=>{setHeight(this.props.height)}}>
                     <img src={s.img} className="swiper-img" alt={s.title} />
                     <div className="swiper-word">
                       {s.title}
