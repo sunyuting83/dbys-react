@@ -117,7 +117,7 @@ export default class Header extends Component {
               {menu.length > 0 && menu.map((s, i) => (
                 <NavLink 
                   activeClassName="active" 
-                  to={`/list/${s.id}`} 
+                  to={`/class/${s.id}`} 
                   key={i}
                   onClick={()=>{setHeight(this.props.height)}}>
                     {s.c_name}

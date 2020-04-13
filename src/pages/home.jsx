@@ -39,7 +39,7 @@ class Home extends Component {
   }
 
   getHeight() {
-    let h = localStorage.getItem('indexheight')
+    let h = sessionStorage.getItem('indexheight')
     if (!h) h = 0
     setTimeout(()=>{
       let scroll = this._container
@@ -76,13 +76,15 @@ class Home extends Component {
       <div className={"skin " + this.props.data.skin}>
         {data.status === 0?
           <div>
-            <Header menu={data.menu} menumore={data.menumore} setSkin={this.props.setSkin}  height={scrollTop} />
+            <Header menu={data.menu} menumore={data.menumore} setSkin={this.props.setSkin}  height={scrollTop} page='indexheight' />
             <section 
               className="content has-header"
-              ref={c => this._container = c} id="totop" onScrollCapture={() => this.handleScroll()}>
-              <Swiper data={data.swiper} height={scrollTop} />
+              ref={c => this._container = c} 
+              id="totop" 
+              onScrollCapture={() => this.handleScroll()}>
+              <Swiper data={data.swiper} height={scrollTop}  page='indexheight' />
               <Notice data={data.notice} />
-              <IndexList data={data.movielist} height={scrollTop} />
+              <IndexList data={data.movielist} height={scrollTop}  page='indexheight' />
             </section>
           </div>
           :

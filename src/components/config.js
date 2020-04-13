@@ -9,6 +9,9 @@ const ListUrl = (b,p) => {
 const PlayerUrl = (b) => {
   return `${RootUrl}getmovie?id=${b}`
 }
+const ClassUrl = (b) => {
+  return `${RootUrl}getclass?id=${b}`
+}
 
 const getSkin = () => {
   let s = ''
@@ -21,8 +24,8 @@ const getSkin = () => {
   return s
 }
 
-const setHeight = (height) => {
-  localStorage.setItem('indexheight', height)
+const setHeight = (height, page) => {
+  sessionStorage.setItem(page, height)
 }
 
 const Keywords = '爱看影视,最新电影,高清电影,免费电影,在线电影,最新电视剧,电影下载,免费下载'
@@ -43,5 +46,6 @@ export {
   GlobalTitle,
   Pkey,
   getSkin,
-  setHeight
+  setHeight,
+  ClassUrl
 }

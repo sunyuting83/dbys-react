@@ -17,7 +17,7 @@ const indexList = (props) => {
                 {s.c_name}
               </div>
               <div className="col col-20 f13 text-right">
-                <NavLink to={`/list/${s.id}`} onClick={()=>{setHeight(props.height)}}>
+                <NavLink to={props.page === 'indexheight'?`/class/${s.id}`:`/list/${s.id}`} onClick={()=>{setHeight(props.height, props.page)}}>
                   更多
                 </NavLink>
               </div>
@@ -25,12 +25,12 @@ const indexList = (props) => {
           </div>
           <div className="block catalog">
             <div className="row row-wrap">
-              {s.movie.length > 0 && s.movie.map((l, index) => (
+              {s.movie && s.movie.length > 0 && s.movie.map((l, index) => (
               <NavLink 
                 className="col col-33 movie" 
                 to={`/player/${l.id}`} 
                 key={l.id}
-                onClick={()=>{setHeight(props.height)}}>
+                onClick={()=>{setHeight(props.height, props.page)}}>
                 <div className="movie-img">
                   <DefaultImg src={l.img} alt={l.title} />
                   <em>{l.remarks}</em>
@@ -40,18 +40,19 @@ const indexList = (props) => {
               </NavLink>
               ))}
             </div>
-            <div class="row row-wrap">
+            {props.page === 'indexheight'?
+              <div class="row row-wrap">
               {s.smallclass.length > 0 && s.smallclass.map((l, index) => (
                 <div class="col col-25"  key={l.id}>
                   <NavLink 
                     className="label-blue" 
                     to={`/list/${l.id}`}
-                    onClick={()=>{setHeight(props.height)}}>
+                    onClick={()=>{setHeight(props.height, props.page)}}>
                     {l.c_name}
                   </NavLink>
                 </div>
               ))}
-          </div>
+            </div>:null}
           </div>
         </div>
       ))}
