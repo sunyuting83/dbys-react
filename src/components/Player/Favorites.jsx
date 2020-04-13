@@ -35,17 +35,19 @@ export default class Favorites extends Component {
       let jsons = JSON.parse(favorites)
       const c = jsons.filter(y => y.id === data.id)
       if(c.length === 0) {
-        jsons = [...jsons, json]
+        if(jsons.length === 50) jsons = jsons.slice(0,-1)
+        jsons = [json, ...jsons]
         localStorage.setItem('favorites', JSON.stringify(jsons))
         this.props.openPopup({
           message: '成功加入收藏夹!',
           open:true
         })
+      }else{
+        this.props.openPopup({
+          message: '已经收藏过了!',
+          open:true
+        })
       }
-      this.props.openPopup({
-        message: '已经收藏过了!',
-        open:true
-      })
     }else{
       const jsons = [json]
       localStorage.setItem('favorites', JSON.stringify(jsons))

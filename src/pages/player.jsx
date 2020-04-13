@@ -65,6 +65,9 @@ class Player extends Component {
   openPopup(cb) {
     this.setState(cb)
   }
+  setHistory(time){
+    console.log(time)
+  }
   changePlay(cb) {
     if(this.state.playpath !== cb.path) {
       this.setState({

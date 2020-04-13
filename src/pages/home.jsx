@@ -28,6 +28,10 @@ class Home extends Component {
     if(data.status === 0) {
       data['ttl'] = Date.now() + 7200000
       localStorage.setItem('index', JSON.stringify(data))
+      localStorage.setItem('menu', JSON.stringify({
+        menu: data.menu,
+        menumore: data.menumore
+      }))
     }
     this.getHeight()
   }

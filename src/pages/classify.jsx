@@ -34,12 +34,7 @@ class Classify extends Component {
     this.getHeight()
   }
   setTitle(id,data){
-    let title = data.menu.filter(x => {
-      if(x.id === Number(id)) {
-        x = x.c_name
-        return x
-      }
-    })[0].c_name
+    let title = data.menu.filter(x => x.id === Number(id))[0].c_name
     document.title = `${GlobalTitle} -${title} - 在线观看,免费观看`
     document.getElementsByTagName('meta')['keywords'].content = Pkey(title)
     document.getElementsByTagName('meta')['description'].content = Description

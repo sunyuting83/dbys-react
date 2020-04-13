@@ -803,6 +803,25 @@ header .icon.icon-fav {
   line-height: 1.65rem;
 }
 
+.movie.fav {
+  align-items: stretch;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.9375rem;
+}
+.movie.fav .col-66 {
+  text-align: left;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+.movie.fav .col h3 {
+  font-size:1rem
+}
+.movie.fav .col p {
+  font-size: 13px;
+  color: #999;
+  margin-top: 10px;
+}
+
 .search-nav > .title > i {
   display: inline-block;
   width: 1.0rem;
@@ -933,6 +952,7 @@ header .icon.icon-fav {
 .ticon-t30 {background-position: -13.52rem -13.52rem}
 .ticon-t31 {background-position: -15.21rem -13.52rem}
 .ticon-play {background-position: -13.52rem -5.07rem}
+.ticon-favorites {background-position: -8.45rem -6.76rem}
 
 /*播放页图标*/
 .iconp {

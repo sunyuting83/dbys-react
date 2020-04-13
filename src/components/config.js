@@ -1,4 +1,4 @@
-const RootUrl = 'http://192.168.1.102:5002/api/'
+const RootUrl = 'http://localhost:5002/api/'
 
 const IndexUrl = `${RootUrl}index`
 
@@ -25,7 +25,7 @@ const getSkin = () => {
 }
 
 const setHeight = (height, page) => {
-  sessionStorage.setItem(page, height)
+  if(page) sessionStorage.setItem(page, height)
 }
 
 const Keywords = '爱看影视,最新电影,高清电影,免费电影,在线电影,最新电视剧,电影下载,免费下载'

@@ -87,7 +87,7 @@ export default class Header extends Component {
           <div className="header-item">
             <span className="icon icon-search" onClick={()=>{setHeight(this.props.height)}}></span>
             <span className="icon icon-history" onClick={()=>{setHeight(this.props.height)}}></span>
-            <span className="icon icon-fav" onClick={()=>{setHeight(this.props.height)}}></span>
+            <NavLink to="/favorites" className="icon icon-fav" onClick={()=>{setHeight(this.props.height)}}></NavLink>
             <span className={showskin?"icon icon-skin active":"icon icon-skin"} onClick={this.toggleSkin.bind(this)}></span>
           </div>
         </header>
@@ -110,7 +110,7 @@ export default class Header extends Component {
                 title="首页" 
                 exact 
                 activeClassName="active"
-                onClick={()=>{setHeight(this.props.height)}}>
+                onClick={()=>{setHeight(this.props.height, this.props.page)}}>
                   首页
                   <em></em>
               </NavLink>
@@ -119,7 +119,7 @@ export default class Header extends Component {
                   activeClassName="active" 
                   to={`/class/${s.id}`} 
                   key={i}
-                  onClick={()=>{setHeight(this.props.height)}}>
+                  onClick={()=>{setHeight(this.props.height, this.props.page)}}>
                     {s.c_name}
                     <em></em>
                 </NavLink>
