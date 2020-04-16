@@ -21,7 +21,7 @@ export default class Notice extends Component {
 		}
 
 		function scrolling(){
-			if(parseInt(o.style.marginTop)%lh!=0){
+			if(parseInt(o.style.marginTop)%lh!==0){
 				o.style.marginTop=parseInt(o.style.marginTop)-1+"px";
 				if(Math.abs(parseInt(o.style.marginTop))>=o.scrollHeight/2) o.style.marginTop=0;
 			}else{
