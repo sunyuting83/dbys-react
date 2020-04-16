@@ -2,11 +2,12 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import DefaultImg from '@/components/defaultImg'
 import {setHeight} from '@/components/config'
+import Nothing from '@/components/nothing'
 
 const indexList = (props) => {
   return (
     <div>
-      {props.data.length > 0 && props.data.map((s, i) => (
+      {props.data && props.data.length > 0 ? props.data.map((s, i) => (
         <div key={i}>
           <div className="catalog">
             <div className="row">
@@ -55,7 +56,8 @@ const indexList = (props) => {
             </div>:null}
           </div>
         </div>
-      ))}
+      )):
+      <Nothing />}
     </div>
   )
 }
