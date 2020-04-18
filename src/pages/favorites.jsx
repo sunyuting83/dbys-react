@@ -14,9 +14,7 @@ class Favorites extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      hname: 'favoritesheight',
-      data: {},
-      scrollTop: 0
+      data: {}
     }
   }
 
@@ -40,8 +38,8 @@ class Favorites extends Component {
       bounce:false
     })
     
+    let current = null
     var items = document.querySelectorAll(".scroll")
-    let current = null //保存当前滑开的item
     for (var i=0,l=items.length; i<l; i++) {
       // 每行创建jroll实例
       const maxXX = items[0].querySelector('.delete').offsetWidth
@@ -119,7 +117,7 @@ class Favorites extends Component {
     if(data.list.length > 0) this.getHeight()
   }
   render() {
-    const {data, scrollTop, hname} = this.state
+    const {data} = this.state
     return (
       <div className={"skin " + this.props.data.skin}>
         {data.status === 0?
