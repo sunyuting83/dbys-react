@@ -178,7 +178,7 @@ button,input[type=submit],input[type=reset],input[type=button],input[type=search
 
 
 header {
-  position: absolute;
+  position: fixed;
   top:0;
   right: 0;
   width: 100%;
@@ -340,7 +340,7 @@ header .icon.icon-fav {
 
 /*附头*/
 .sub-header {
-  position: absolute;
+  position: fixed;
   top:2.93rem;
   height: 2.73rem;
   width: 100%;
@@ -436,6 +436,7 @@ header .icon.icon-fav {
   display: none;
   z-index: 9;
   background:#fff;
+  position: fixed;
 }
 .class .col > span {
   display: block;
@@ -2222,3 +2223,188 @@ background:#fff;
 }
 .skin.black .one-news b,
 .skin.black .marqueebox span {color:#efefef}
+
+
+/* 滚动相关CSS */
+.scroll-block {
+  position: relative;
+  left: 0;
+  right: 0;
+  height: 100%;
+  box-sizing: border-box;
+}
+.pull-load {
+  position: relative;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+.pull-load-head {
+  position: absolute;
+  transform: translate3d(0px, -100%, 0px);
+  width: 100%;
+}
+
+.state-refreshing .pull-load-head,
+.state-refreshed .pull-load-head {
+  position: relative;
+  transform: none;
+}
+
+.pull-load-body {
+  position: relative;
+}
+
+.state-refreshing .pull-load-body {
+  transition: transform 0.2s;
+}
+
+.state-reset .pull-load-body {
+  transition: transform 0.2s;
+}
+
+/*
+* HeadNode default UI
+*/
+
+.pull-load-head-default {
+  text-align: center;
+  font-size: .92rem;
+  line-height: 3rem;
+  color: #7676a1;
+}
+
+.state-pulling .pull-load-head-default:after {
+  content: '\4E0B\62C9\5237\65B0';
+}
+
+.state-pulling.enough .pull-load-head-default:after {
+  content: '\677E\5F00\5237\65B0';
+}
+
+.state-refreshing .pull-load-head-default:after {
+  content: '\6B63\5728\5237\65B0...';
+}
+
+.state-refreshed .pull-load-head-default:after {
+  content: '\5237\65B0\6210\529F';
+}
+
+.state-pulling .pull-load-head-default {
+  opacity: 1;
+}
+
+.state-pulling .pull-load-head-default i {
+  display: inline-block;
+  font-size: 2em;
+  margin-right: .6em;
+  vertical-align: middle;
+  height: 1em;
+  border-left: 1px solid;
+  position: relative;
+  transition: transform .3s ease;
+}
+
+.state-pulling .pull-load-head-default i:before,
+.state-pulling .pull-load-head-default i:after {
+  content: '';
+  position: absolute;
+  font-size: .5em;
+  width: 1em;
+  bottom: 0px;
+  border-top: 1px solid;
+}
+
+.state-pulling .pull-load-head-default i:before {
+  right: 1px;
+  transform: rotate(50deg);
+  transform-origin: right;
+}
+
+.state-pulling .pull-load-head-default i:after {
+  left: 0px;
+  transform: rotate(-50deg);
+  transform-origin: left;
+}
+
+.state-pulling.enough .pull-load-head-default i {
+  transform: rotate(180deg);
+}
+
+.state-refreshing .pull-load-head-default i {
+  margin-right: .77rem;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 1.5rem;
+  width: 1em;
+  height: 1em;
+  border: .15rem solid #9494b6;
+  border-top-color: #fff;
+  border-radius: 100%;
+  animation: circle .8s infinite linear;
+}
+
+.state-refreshed .pull-load-head-default {
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+.state-refreshed .pull-load-head-default i {
+  display: inline-block;
+  box-sizing: content-box;
+  vertical-align: middle;
+  margin-right: .77rem;
+  font-size: 1.54rem;
+  height: 1em;
+  width: 1em;
+  border: 1px solid;
+  border-radius: 100%;
+  position: relative;
+}
+
+.state-refreshed .pull-load-head-default i:before {
+  content: '';
+  position: absolute;
+  top: .23rem;
+  left: .54rem;
+  height: .85rem;
+  width: .38rem;
+  border: solid;
+  border-width: 0 1px 1px 0;
+  transform: rotate(40deg);
+}
+
+.pull-load-footer-default {
+  text-align: center;
+  font-size: .92rem;
+  line-height: 3rem;
+  color: #333;
+}
+
+.state-loading .pull-load-footer-default:after {
+  content: '\52A0\8F7D\66F4\591A';
+}
+
+.pull-load-footer-default.nomore:after {
+  content: '我是有底线的！！！';
+}
+
+.state-loading .pull-load-footer-default i {
+  margin-right: .77rem;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 1.5rem;
+  width: 1em;
+  height: 1em;
+  border: .15rem solid #9494b6;
+  border-top-color: #fff;
+  border-radius: 100%;
+  animation: circle .8s infinite linear;
+}
+/* scroll */
+.scrollarea .scrollbar-container.vertical:hover {
+  width: 16px;
+}
+.scrollarea .scrollbar-container.vertical:hover .scrollbar {
+  width: 12px;
+  margin-left: 2px
+}

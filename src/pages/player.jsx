@@ -101,6 +101,7 @@ class Player extends Component {
   }
   componentWillUnmount(){
     clearTimeout(timeo)
+    sessionStorage.setItem("isGoBack", 1)
   }
   render() {
     const {data, message, open, playpath, playtype, playstatus} = this.state
