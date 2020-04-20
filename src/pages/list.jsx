@@ -149,13 +149,13 @@ class List extends Component {
     sessionStorage.setItem(`listInfo:${this.state.id}`, JSON.stringify(listInfo));
   }
   render() {
-    const {data, hasMore} = this.state
+    const {data, hasMore, id} = this.state
     return (
       <div className={"skin " + this.props.data.skin}>
         {data.status === 0?
           <div>
             {this.setListener()}
-            <Header menu={data.menu} menumore={data.menumore} title={data.ctitle} setSkin={this.props.setSkin} />
+            <Header menu={data.menu} menumore={data.menumore} title={data.ctitle} setSkin={this.props.setSkin} id={id} />
               <ReactPullLoad 
                 id="train-course" 
                 ref={scroll => this.ScrollId = scroll} 

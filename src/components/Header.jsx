@@ -12,6 +12,7 @@ export default class Header extends Component {
       menumore: props.menumore,
       title: props.title,
       showskin: false,
+      tpid: 0,
       skinitem: [
         {
           color: '#2095f2',
@@ -68,6 +69,12 @@ export default class Header extends Component {
     this.setState({
       color: s
     })
+    const u = this.state.menumore.filter(x => x.id === parseInt(this.props.id))
+    if(u.length > 0) {
+      this.setState({
+        tpid: u[0].top_id
+      })
+    }
   }
   render() {
     const {showmore, menu, menumore, title, skinitem, showskin, color} = this.state
@@ -119,6 +126,7 @@ export default class Header extends Component {
                   activeClassName="active" 
                   to={`/class/${s.id}`} 
                   key={i}
+                  className={this.state.tpid === s.id?'active':null}
                   onClick={()=>{setHeight(this.props.height, this.props.page)}}>
                     {s.c_name}
                     <em></em>
