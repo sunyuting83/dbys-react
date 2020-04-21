@@ -2055,6 +2055,7 @@ background:#fff;
   color: #fff
 }
 .skin.red .delete {background: #ea4861;}
+.skin.red header > .logo em {background:#fff418}
 /* skin-green */
 .skin.green header,
 .skin.green .sub-header .sub-class a > em,
@@ -2118,6 +2119,7 @@ background:#fff;
   color: #fff
 }
 .skin.orange .delete {background: #ff993d;}
+.skin.orange header > .logo em {background:#2095f2;color:#efefef}
 /* skin-dorange */
 .skin.dorange header,
 .skin.dorange .sub-header .sub-class a > em,
@@ -2139,6 +2141,7 @@ background:#fff;
   color: #fff
 }
 .skin.dorange .delete {background: #fd583d;}
+.skin.dorange header > .logo em {background:#2095f2;color:#efefef}
 /* skin-grey */
 .skin.grey header,
 .skin.grey .sub-header .sub-class a > em,
