@@ -30,8 +30,8 @@ class Classify extends Component {
       data['ttl'] = Date.now() + 7200000
       localStorage.setItem(`classify:${id}`, JSON.stringify(data))
       this.setTitle(id,data)
+      this.getHeight()
     }
-    this.getHeight()
   }
   setTitle(id,data){
     let title = data.menu.filter(x => x.id === Number(id))[0].c_name
@@ -105,7 +105,7 @@ class Classify extends Component {
             </section>
           </div>
           :
-          <Error data={data} />
+          <Error data={data} getData={()=>this.getData(this.state.id)} />
         }
       </div>
     )

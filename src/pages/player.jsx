@@ -32,34 +32,43 @@ class Player extends Component {
 
   async getData(url) {
     const data = await HttpServer(url)
-        , has = data.play_path.hasOwnProperty('hls')
     let playpath = '', playtype = ''
-    if(has) {
-      if(data.play_path.more) {
-        playpath = data.play_path.hls[0][0].path
+    if(data.status === 0) {
+      const has = data.play_path.hasOwnProperty('hls')
+      if(has) {
+        if(data.play_path.more) {
+          playpath = data.play_path.hls[0][0].path
+        }else{
+          playpath = data.play_path.hls[0].path
+        }
+        playtype = 'hls'
       }else{
-        playpath = data.play_path.hls[0].path
+        if(data.play_path.more) {
+          playpath = data.play_path.player[0][0].path
+        }else {
+          playpath = data.play_path.player[0].path
+        }
+        playtype = 'play'
       }
-      playtype = 'hls'
-    }else{
-      if(data.play_path.more) {
-        playpath = data.play_path.player[0][0].path
-      }else {
-        playpath = data.play_path.player[0].path
+      this.setState({
+        data: data,
+        playpath: playpath,
+        playtype: playtype
+      })
+      document.title = `${GlobalTitle} - ${data.title}-在线观看,免费观看`
+      document.getElementsByTagName('meta')['keywords'].content = Pkey(data.title)
+      if(data.profiles) {
+        document.getElementsByTagName('meta')['description'].content = data.profiles.substring(0, 52)
+      }else{
+        document.getElementsByTagName('meta')['description'].content = Pkey(data.title)
       }
-      playtype = 'play'
-    }
-    this.setState({
-      data: data,
-      playpath: playpath,
-      playtype: playtype
-    })
-    document.title = `${GlobalTitle} - ${data.title}-在线观看,免费观看`
-    document.getElementsByTagName('meta')['keywords'].content = Pkey(data.title)
-    if(data.profiles) {
-      document.getElementsByTagName('meta')['description'].content = data.profiles.substring(0, 52)
-    }else{
-      document.getElementsByTagName('meta')['description'].content = Pkey(data.title)
+    }else {
+      this.setState({
+        data: {
+          ...this.state.data,
+          status: 1
+        }
+      })
     }
   }
   openPopup(cb) {
@@ -120,7 +129,7 @@ class Player extends Component {
             <Popup message={message} status={open} openPopup={this.openPopup.bind(this)} />
           </div>
           :
-          <Error data={data} />
+          <Error data={data} getData={()=>this.getData(PlayerUrl(this.state.id))} />
         }
       </div>
     )

@@ -32,8 +32,8 @@ class Home extends Component {
         menu: data.menu,
         menumore: data.menumore
       }))
+      this.getHeight()
     }
-    this.getHeight()
   }
   handleScroll() {
     let scrollTop = this._container.scrollTop;
@@ -92,7 +92,7 @@ class Home extends Component {
             </section>
           </div>
           :
-          <Error data={data} />
+          <Error data={data} getData={this.getData.bind(this)} />
         }
       </div>
     )

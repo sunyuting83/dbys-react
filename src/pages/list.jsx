@@ -10,6 +10,7 @@ import Error from '@/components/Error'
 import { NavLink } from 'react-router-dom'
 import { Store } from '@/pages/root'
 import DefaultImg from '@/components/defaultImg'
+import Nothing from '@/components/nothing'
 
 let scrollTop = 0;
 class List extends Component {
@@ -73,7 +74,14 @@ class List extends Component {
       }
       this.setTitle(id,data)
     } else {
-      this.setState({ action: STATS.reset, hasMore: false });
+      this.setState({ 
+        action: STATS.reset, 
+        hasMore: false,
+        data: {
+          ...this.state.data,
+          status: 1
+        } 
+      });
     }
   }
   onScrollHandle(event) {
@@ -162,6 +170,7 @@ class List extends Component {
           <div>
             {this.setListener()}
             <Header menu={data.menu} menumore={data.menumore} title={data.ctitle} setSkin={this.props.setSkin} id={id} path={this.props.match.path} />
+            {data.movies && data.movies.length > 0 ?
               <ReactPullLoad 
                 id="train-course" 
                 ref={scroll => this.ScrollId = scroll} 
@@ -173,7 +182,7 @@ class List extends Component {
                 distanceBottom={150}>
               <div className="block catalog">
                 <div className="row row-wrap">
-                {data.movies && data.movies.length > 0 && data.movies.map((l, index) => (
+                {data.movies.map((l, index) => (
                   <NavLink 
                     className="col col-33 movie" 
                     to={`/player/${l.id}`} 
@@ -190,9 +199,12 @@ class List extends Component {
                 </div>
               </div>
               </ReactPullLoad>
+            :
+            <Nothing />
+            }
           </div>
           :
-          <Error data={data} />
+          <Error data={data} getData={()=>this.getData(id, this.state.page)} />
         }
       </div>
     )
