@@ -39,14 +39,20 @@ class List extends Component {
     return null;
   }
   setTitle(id,data){
-    let title = data.menumore.filter(x => x.id === Number(id))[0].c_name
+    let title = data.ctitle
     document.title = `${GlobalTitle} -${title} - 在线观看,免费观看`
     document.getElementsByTagName('meta')['keywords'].content = Pkey(title)
     document.getElementsByTagName('meta')['description'].content = Description
   }
   async getData(id,newpage) {
-    if(Number(newpage) === 1) newpage = Number(newpage);
-    let data = await HttpServer(ListUrl(id,newpage));
+    if(Number(newpage) === 1) newpage = Number(newpage)
+    // console.log(this.props.match)
+    const p = {
+      path: this.props.match.path,
+      id: id,
+      page: newpage
+    }
+    let data = await HttpServer(ListUrl(p))
     if(data.status === 0 && data.movies.length > 0) {
       if(newpage === 1) {
         this.setState({
@@ -155,7 +161,7 @@ class List extends Component {
         {data.status === 0?
           <div>
             {this.setListener()}
-            <Header menu={data.menu} menumore={data.menumore} title={data.ctitle} setSkin={this.props.setSkin} id={id} />
+            <Header menu={data.menu} menumore={data.menumore} title={data.ctitle} setSkin={this.props.setSkin} id={id} path={this.props.match.path} />
               <ReactPullLoad 
                 id="train-course" 
                 ref={scroll => this.ScrollId = scroll} 

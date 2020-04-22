@@ -16,6 +16,9 @@ export default function Main() {
       <Route path='/' exact component={Home} />
       <Route path='/class/:id' component={Classify} />
       <Route path='/list/:id' component={List} />
+      <Route path='/area/:id' component={List} />
+      <Route path='/director/:id' component={List} />
+      <Route path='/performer/:id' component={List} />
       <Route path='/player/:id' component={Player} />
       <Route path='/favorites' component={Favorites} />
     </Switch>

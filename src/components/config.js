@@ -2,9 +2,33 @@ const RootUrl = 'http://localhost:5002/api/'
 
 const IndexUrl = `${RootUrl}index`
 
-const ListUrl = (b,p) => {
-  if(!p) p = 1
-  return `${RootUrl}list?cid=${b}&page=${p}`
+const makeListUrl = (path) => {
+  let url
+  switch (path) {
+    case 'list':
+      url = `list?cid=`
+      break;
+    case 'area':
+      url = `area?id=`
+      break;
+    case 'performer':
+      url = `performer?id=`
+      break;
+    case 'director':
+      url = `director?id=`
+      break;
+    default:
+      break;
+  }
+  return url
+}
+
+const ListUrl = (param) => {
+  let {path, id, page} = param
+  path = path.substring(1, path.lastIndexOf('/'))
+  let l = makeListUrl(path)
+  if(!page) page = 1
+  return `${RootUrl}${l}${id}&page=${page}`
 }
 const PlayerUrl = (b) => {
   return `${RootUrl}getmovie?id=${b}`

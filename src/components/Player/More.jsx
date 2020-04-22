@@ -36,12 +36,12 @@ export default class More extends Component {
                   <h1 className="col f14">{data.title}</h1>
                   <p className="col f11 h88">主演：
                     {data.performer.length > 0 && data.performer.map(x =>(
-                      <NavLink to={`/tags/performer/${x.id}/${x.p_name}`} className="h88">{x.p_name}</NavLink>
+                      <NavLink to={`/performer/${x.id}`} className="h88 margin-r5">{x.p_name}</NavLink>
                     ))}
                   </p>
                   <p className="col f11 h88">导演：
                     {data.director.length > 0 && data.director.map(x =>(
-                      <NavLink to={`/tags/director/${x.id}/${x.d_name}`} className="h88">{x.d_name}</NavLink>
+                      <NavLink to={`/director/${x.id}`} className="h88">{x.d_name}</NavLink>
                     ))}
                   </p>
                   <div className="row f11 h88">
@@ -51,7 +51,7 @@ export default class More extends Component {
                   <div className="row f11 h88">
                     <div className="col">区域：
                     {data.area.length > 0 && data.area.map(x =>(
-                      <NavLink to={`/tags/area/${x.id}/${x.a_name}`} className="h88">{x.a_name}</NavLink>
+                      <NavLink to={`/area/${x.id}`} className="h88">{x.a_name}</NavLink>
                     ))}
                     </div>
                     <div className="col">语言：{data.languarge}</div>

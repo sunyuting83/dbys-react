@@ -126,7 +126,7 @@ export default class Header extends Component {
                   activeClassName="active" 
                   to={`/class/${s.id}`} 
                   key={i}
-                  className={this.state.tpid === s.id?'active':null}
+                  className={this.props.path && this.props.path.includes('list') && this.state.tpid === s.id?'active':null}
                   onClick={()=>{setHeight(this.props.height, this.props.page)}}>
                     {s.c_name}
                     <em></em>
