@@ -9,6 +9,7 @@ const Player = React.lazy(_ => import('@/pages/player'))
 const List = React.lazy(_ => import('@/pages/list'))
 const Classify = React.lazy(_ => import('@/pages/classify'))
 const Favorites = React.lazy(_ => import('@/pages/favorites'))
+const Search = React.lazy(_ => import('@/pages/search'))
 
 export default function Main() {
   return (
@@ -20,6 +21,7 @@ export default function Main() {
       <Route path='/director/:id' component={List} />
       <Route path='/performer/:id' component={List} />
       <Route path='/player/:id' component={Player} />
+      <Route path='/search' component={Search} />
       <Route path='/favorites' component={Favorites} />
     </Switch>
   );

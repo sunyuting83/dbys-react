@@ -92,7 +92,7 @@ export default class Header extends Component {
           <div className="title">{title}</div>:null
           }
           <div className="header-item">
-            <span className="icon icon-search" onClick={()=>{setHeight(this.props.height)}}></span>
+            <NavLink to="/search"  className="icon icon-search" onClick={()=>{setHeight(this.props.height)}}></NavLink>
             <span className="icon icon-history" onClick={()=>{setHeight(this.props.height)}}></span>
             <NavLink to="/favorites" className="icon icon-fav" onClick={()=>{setHeight(this.props.height)}}></NavLink>
             <span className={showskin?"icon icon-skin active":"icon icon-skin"} onClick={this.toggleSkin.bind(this)}></span>

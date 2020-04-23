@@ -8,7 +8,8 @@
     "@testing-library/user-event": "^7.1.2",
     "react-iscroll": "^2.0.3",
     "react-pullload": "^1.2.0",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "react-string-replace": "^0.4.4"
   },
   "scripts": {
     "start": "react-app-rewired  start",

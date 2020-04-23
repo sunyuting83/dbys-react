@@ -1,6 +1,7 @@
 const RootUrl = 'http://localhost:5002/api/'
 
 const IndexUrl = `${RootUrl}index`
+const HotUrl = `${RootUrl}gethot`
 
 const makeListUrl = (path) => {
   let url
@@ -71,5 +72,6 @@ export {
   Pkey,
   getSkin,
   setHeight,
-  ClassUrl
+  ClassUrl,
+  HotUrl
 }

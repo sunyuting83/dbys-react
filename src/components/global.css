@@ -239,7 +239,7 @@ header .hs-search {
   margin-right: 0.67rem;
   border:none;
   overflow: hidden;
-  position: relative;
+  position: relative
 }
 header .hs-search > input[name="search"] {
   height: 1.84rem;
@@ -258,12 +258,22 @@ header .hs-search > em {
   display: inline-block;
   width: 1.23rem;
   height: 1.23rem;
-  background: url('https://image.suning.cn/uimg/ZR/share_order/158631631753430443.jpg') no-repeat;
+  background: url('./icons/icon.png') no-repeat;
   background-size: 12.3rem;
   background-position: -11.07rem -1.23rem;
   top:0.30rem;
   left: 0.38rem;
   position: absolute;
+}
+header .hs-search > .search-button {
+  position: absolute;
+  right: 0.1125rem;
+  top: 0.1125rem;
+  color:#fff;
+  border: none;
+  width: 3.4375rem;
+  height: 1.625rem;
+  border-radius: 0.9375rem;
 }
 
 header .header-item {
@@ -833,7 +843,7 @@ header .icon.icon-fav {
   width: 1.0rem;
   height: 1.0rem;
   font-size: 0.76rem;
-  background:#ddd;
+  background:#999;
   color:#fefefe;
   margin-right: 0.38rem;
   vertical-align: baseline;
@@ -2049,6 +2059,9 @@ background:#fff;
   color: #fff
 }
 .skin.blue .delete {background: #2095f2;}
+.skin.blue header .hs-search > .search-button {
+  background: #2095f2;
+}
 /* skin-red */
 .skin.red header,
 .skin.red .sub-header .sub-class a > em,
@@ -2071,6 +2084,9 @@ background:#fff;
 }
 .skin.red .delete {background: #ea4861;}
 .skin.red header > .logo em {background:#fff418}
+.skin.red header .hs-search > .search-button {
+  background: #ea4861;
+}
 /* skin-green */
 .skin.green header,
 .skin.green .sub-header .sub-class a > em,
@@ -2092,6 +2108,9 @@ background:#fff;
   color: #fff
 }
 .skin.green .delete {background: #219587;}
+.skin.green header .hs-search > .search-button {
+  background: #219587;
+}
 /* skin-violet */
 .skin.violet header,
 .skin.violet .sub-header .sub-class a > em,
@@ -2113,6 +2132,9 @@ background:#fff;
   color: #fff
 }
 .skin.violet .delete {background: #3f56b4;}
+.skin.violet header .hs-search > .search-button {
+  background: #3f56b4;
+}
 /* skin-orange */
 .skin.orange header,
 .skin.orange .sub-header .sub-class a > em,
@@ -2135,6 +2157,9 @@ background:#fff;
 }
 .skin.orange .delete {background: #ff993d;}
 .skin.orange header > .logo em {background:#2095f2;color:#efefef}
+.skin.orange header .hs-search > .search-button {
+  background: #ff993d;
+}
 /* skin-dorange */
 .skin.dorange header,
 .skin.dorange .sub-header .sub-class a > em,
@@ -2157,6 +2182,9 @@ background:#fff;
 }
 .skin.dorange .delete {background: #fd583d;}
 .skin.dorange header > .logo em {background:#2095f2;color:#efefef}
+.skin.dorange header .hs-search > .search-button {
+  background: #fd583d;
+}
 /* skin-grey */
 .skin.grey header,
 .skin.grey .sub-header .sub-class a > em,
@@ -2178,6 +2206,12 @@ background:#fff;
   color: #fff
 }
 .skin.grey .delete {background: #5f7b89;}
+.skin.grey header .hs-search > .search-button {
+  background: #5f7b89;
+}
+.skin.grey header .hs-search > .search-button {
+  background: #5f7b89;
+}
 /* skin-pink */
 .skin.pink header,
 .skin.pink .sub-header .sub-class a > em,
@@ -2199,6 +2233,9 @@ background:#fff;
   color: #fff
 }
 .skin.pink .delete {background: #c8405d;}
+.skin.pink header .hs-search > .search-button {
+  background: #c8405d;
+}
 /* skin-black */
 .skin.black header,
 .skin.black .b-title > .blues ,
@@ -2241,6 +2278,10 @@ background:#fff;
 }
 .skin.black .one-news b,
 .skin.black .marqueebox span {color:#efefef}
+.skin.black header .hs-search > .search-button {
+  background: #333;
+  color: #efefef;
+}
 
 
 /* 滚动相关CSS */
