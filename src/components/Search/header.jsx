@@ -98,6 +98,8 @@ export default class Header extends Component {
     };
     this.setState(data);
     this.props.handleSearchKey(false);
+    sessionStorage.removeItem(`listInfo:search`);
+    sessionStorage.removeItem("isGoBack");
     this.search.focus()
   }
 

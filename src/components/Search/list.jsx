@@ -19,7 +19,6 @@ export default class List extends Component {
       isScrollBottom: scrollTop,
       scrollheight: 0
     };
-    this.setData = this.setData.bind(this);
     this.onScrollHandle = this.onScrollHandle.bind(this);
   }
 
@@ -90,8 +89,10 @@ export default class List extends Component {
     this.setState({ action: action })
   }
 
-  setData () {
-    let scrollTop = document.getElementById("train-course").scrollTop;
+  setListener() {
+    outime = setTimeout(()=> {
+      document.getElementById('train-course').addEventListener('scroll', (ev) => this.onScrollHandle(ev));//给元素添加滚动监听
+    },10)
   }
 
   componentDidMount() {
@@ -99,13 +100,28 @@ export default class List extends Component {
       this.contentNode.addEventListener('scroll', this.onScrollHandle.bind(this));
       this.contentNode.scrollTop = scrollTop
     };
-
-    document.getElementById("train-course").addEventListener('scroll', (ev) => this.onScrollHandle(ev));//给元素添加滚动监听
-    // console.log(this.props.list);
-    let k = this.props.data;
-    // console.log(k, this.state.key);
-    if (k !== this.state.key) {
-      this.getFirstData(k);
+    if (this.props.data !== this.state.key) {
+      this.getFirstData(this.props.data);
+    }
+    
+    if (this.props.isGoback === "1") {//返回回来的页面
+      let listInfo = JSON.parse(sessionStorage.getItem(`listInfo:search`));
+      // console.log(listInfo)
+      if(listInfo) {
+        this.setState({
+          key: listInfo.searchKey,
+          page: listInfo.pIndex,
+          data: listInfo.courseData
+        }, () => document.getElementById("train-course").scrollTop = listInfo.scorllTop)
+      }else {//从其他页面进入的列表页
+        if (this.props.data !== this.state.key) {
+          this.getFirstData(this.props.data);
+        }
+      }
+    } else {//从其他页面进入的列表页
+      if (this.props.data !== this.state.key) {
+        this.getFirstData(this.props.data);
+      }
     }
   }
   componentWillUnmount() {
@@ -124,10 +140,23 @@ export default class List extends Component {
     };
   }
 
+  gotoDetial(ev) {
+    //存储数据
+    // console.log(ev)
+    const listInfo = {
+      pIndex: this.state.page,
+      courseData: this.state.data,
+      searchKey: this.state.key,
+      scorllTop: document.getElementById("train-course").scrollTop
+    }
+    sessionStorage.setItem(`listInfo:search`, JSON.stringify(listInfo));
+  }
+
   render() {
     const { data, hasMore } = this.state;
     return (
       <section className="content hasheader">
+      {this.setListener()}
       {data && data.length > 0 ?
         <ReactPullLoad 
           id="train-course" 
@@ -144,7 +173,8 @@ export default class List extends Component {
               <Link 
                 className="col col-33 movie" 
                 to={`/player/${l.id}`} 
-                key={l.id}>
+                key={l.id}
+                onClick={(e)=>{this.gotoDetial(e)}}>
                 <div className="movie-img">
                   <DefaultImg src={l.img} alt={l.title} />
                   <em>{l.remarks}</em>
