@@ -10,6 +10,8 @@ import {
   GlobalTitle} from '@/components/config'
 import Error from '@/components/Error'
 import { Store } from '@/pages/root'
+
+let outime
 class Favorites extends Component {
   constructor(props) {
     super(props);
@@ -26,7 +28,7 @@ class Favorites extends Component {
 
   getHeight() {
     const _this = this
-    setTimeout(()=>{
+    outime = setTimeout(()=>{
       _this.makeScroll()
     },80)
   }
@@ -86,7 +88,7 @@ class Favorites extends Component {
     data.list = data.list.filter(x=> x.id !== id)
     localStorage.setItem('favorites',JSON.stringify(data.list))
     const _this = this
-    setTimeout(()=>{
+    outime = setTimeout(()=>{
       _this.setState({
         data: {
           ...data,
@@ -115,6 +117,9 @@ class Favorites extends Component {
     })
     this.setTitle()
     if(data.list.length > 0) this.getHeight()
+  }
+  componentWillUnmount() {
+    clearTimeout(outime)
   }
   render() {
     const {data} = this.state

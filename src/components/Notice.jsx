@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+let ot
 export default class Notice extends Component {
   constructor(props) {
     super(props)
@@ -26,14 +27,18 @@ export default class Notice extends Component {
 				if(Math.abs(parseInt(o.style.marginTop))>=o.scrollHeight/2) o.style.marginTop=0;
 			}else{
 				clearInterval(t);
-				setTimeout(start,delay);
+				ot = setTimeout(start,delay);
 			}
 		}
-		setTimeout(start,delay);
+		ot = setTimeout(start,delay);
 	}
   componentDidMount(){
     let marHeight = this._marquee.childNodes[0].clientHeight
     if(this.props.data.length > 0) this.startmarquee(marHeight,marHeight,3500);
+  }
+
+  componentWillUnmount(){
+    clearTimeout(ot)
   }
 
   render() {

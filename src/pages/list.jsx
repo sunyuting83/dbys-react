@@ -12,7 +12,8 @@ import { Store } from '@/pages/root'
 import DefaultImg from '@/components/defaultImg'
 import Nothing from '@/components/nothing'
 
-let scrollTop = 0;
+let scrollTop = 0,
+    outime;
 class List extends Component {
   constructor(props) {
     super(props);
@@ -101,7 +102,7 @@ class List extends Component {
       return false
     }
     if (action === STATS.refreshing) { //刷新
-      setTimeout(() => {
+      outime = setTimeout(() => {
           this.getData(id, 1);
       }, 300)
     } else if (action === STATS.loading) { //加载更多
@@ -109,7 +110,7 @@ class List extends Component {
         return;
       }
       this.setState({hasMore: true});
-      setTimeout(() => {
+      outime = setTimeout(() => {
         this.getData(id,Number(page) + 1);
       }, 300)
     }
@@ -139,7 +140,7 @@ class List extends Component {
     }
   }
   setListener() {
-    setTimeout(()=> {
+    outime = setTimeout(()=> {
       document.getElementById('train-course').addEventListener('scroll', (ev) => this.onScrollHandle(ev));//给元素添加滚动监听
     },10)
   }
@@ -153,6 +154,7 @@ class List extends Component {
       this.contentNode.removeEventListener('scroll', this.onScrollHandle.bind(this));
       scrollTop = this.contentNode.scrollTop
     };
+    clearTimeout(outime)
   }
   gotoDetial(ev) {
     //存储数据

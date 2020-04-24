@@ -101,6 +101,10 @@ export default class Header extends Component {
     this.search.focus()
   }
 
+  componentWillUnmount(){
+    clearTimeout(timeout)
+  }
+
   render() {
     const { results, hides, query, goback } = this.state
     return (

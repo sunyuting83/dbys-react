@@ -9,6 +9,8 @@ import {
 import HttpServer from '@/components/fetch'
 import Error from '@/components/Error'
 import { Store } from '@/pages/root'
+
+let outime
 class Classify extends Component {
   constructor(props) {
     super(props);
@@ -49,7 +51,7 @@ class Classify extends Component {
   getHeight() {
     let h = sessionStorage.getItem(this.state.hname)
     if (!h) h = 0
-    setTimeout(()=>{
+    outime = setTimeout(()=>{
       let scroll = this._container
       scroll.scrollTop = h
     },100)
@@ -88,6 +90,9 @@ class Classify extends Component {
       })
       this.getData(nextid)
     }
+  }
+  componentWillUnmount() {
+    clearTimeout(outime)
   }
   render() {
     const {data, scrollTop, hname} = this.state

@@ -6,7 +6,8 @@ import HttpServer from '@/components/fetch'
 import DefaultImg from '@/components/defaultImg'
 import Nothing from '@/components/nothing'
 
-let scrollTop = 0;
+let scrollTop = 0,
+    outime;
 export default class List extends Component {
   constructor(props) {
     super(props);
@@ -72,7 +73,7 @@ export default class List extends Component {
       return false
     }
     if (action === STATS.refreshing) { //刷新
-      setTimeout(() => {
+      outime = setTimeout(() => {
         _this.getFirstData(this.state.key);
       }, 300)
     } else if (action === STATS.loading) { //加载更多
@@ -82,7 +83,7 @@ export default class List extends Component {
       const key = this.state.key,
             x = this.state.page;
       this.setState({ hasMore: true });
-      setTimeout(() => {
+      outime = setTimeout(() => {
         _this.getNewData(key, x);
       }, 300)
     }
@@ -112,6 +113,7 @@ export default class List extends Component {
       this.contentNode.removeEventListener('scroll', this.onScrollHandle.bind(this));
       scrollTop = this.contentNode.scrollTop
     };
+    clearTimeout(outime)
   }
 
   componentWillReceiveProps(nextProps) {

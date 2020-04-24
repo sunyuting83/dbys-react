@@ -27,8 +27,7 @@ class Search extends Component {
     })
   }
   render() {
-    const key = this.state.key;
-    console.log(key)
+    const key = this.state.key
     return (
       <div className={"skin " + this.props.data.skin}>
         <Header handleSearchKey={this.handleSearchKey} word={key} />
