@@ -1,4 +1,3 @@
-@import url('https://s3.pstatp.com/cdn/expire-1-M/font-awesome/5.8.1/css/fontawesome.min.css');
 @import url('https://s3.pstatp.com/cdn/expire-1-M/Swiper/4.5.0/css/swiper.min.css');
 @import url('https://s1.pstatp.com/cdn/expire-1-M/dplayer/1.25.0/DPlayer.min.css');
 a,input {
@@ -274,6 +273,48 @@ header .hs-search > .search-button {
   width: 3.4375rem;
   height: 1.625rem;
   border-radius: 0.9375rem;
+}
+
+
+/* 显示或隐藏联想列表 */
+
+.search .search-over {
+  position: absolute;
+  width: 100%;
+  text-align: left;
+  top: 2.93rem;
+  padding-top: 0.3125rem;
+  background: #fff;
+  z-index: 99;
+  opacity: 1;
+}
+.search .search-over.hd {
+  z-index: -99;
+  opacity: 0;
+}
+.search .search-over .list {
+  display: flex;
+  height: 2.8125rem;
+  line-height: 2.8125rem;
+  padding: 0 1.25rem;
+  background: linear-gradient(180deg, #e1e1e1, transparent 67%, transparent 0) no-repeat bottom;
+  -moz-background-size: 100% 1px;
+  background-size: 100% 1px;
+  background-position: 0 0;
+  align-items: center;
+}
+.search .search-over>.list>i {
+  margin-right: 0.5rem;
+  background:url('./icons/icon.png');
+  background-size: 11.28rem 33.84rem;
+  width: 1.128rem;
+  height: 1.128rem;
+  display: inline-block;
+  background-position: -10.152rem -1.128rem
+}
+.search .search-over>.list>span {
+  color: #333;
+  font-size: 0.875rem
 }
 
 header .header-item {
@@ -2062,6 +2103,7 @@ background:#fff;
 .skin.blue header .hs-search > .search-button {
   background: #2095f2;
 }
+.skin.blue .suggestions {color:#2095f2}
 /* skin-red */
 .skin.red header,
 .skin.red .sub-header .sub-class a > em,
@@ -2087,6 +2129,7 @@ background:#fff;
 .skin.red header .hs-search > .search-button {
   background: #ea4861;
 }
+.skin.red .suggestions {color:#ea4861}
 /* skin-green */
 .skin.green header,
 .skin.green .sub-header .sub-class a > em,
@@ -2111,6 +2154,7 @@ background:#fff;
 .skin.green header .hs-search > .search-button {
   background: #219587;
 }
+.skin.green .suggestions {color:#219587}
 /* skin-violet */
 .skin.violet header,
 .skin.violet .sub-header .sub-class a > em,
@@ -2135,6 +2179,7 @@ background:#fff;
 .skin.violet header .hs-search > .search-button {
   background: #3f56b4;
 }
+.skin.violet .suggestions {color:#219587}
 /* skin-orange */
 .skin.orange header,
 .skin.orange .sub-header .sub-class a > em,
@@ -2160,6 +2205,7 @@ background:#fff;
 .skin.orange header .hs-search > .search-button {
   background: #ff993d;
 }
+.skin.orange .suggestions {color:#ff993d}
 /* skin-dorange */
 .skin.dorange header,
 .skin.dorange .sub-header .sub-class a > em,
@@ -2185,6 +2231,7 @@ background:#fff;
 .skin.dorange header .hs-search > .search-button {
   background: #fd583d;
 }
+.skin.dorange .suggestions {color:#fd583d}
 /* skin-grey */
 .skin.grey header,
 .skin.grey .sub-header .sub-class a > em,
@@ -2212,6 +2259,7 @@ background:#fff;
 .skin.grey header .hs-search > .search-button {
   background: #5f7b89;
 }
+.skin.grey .suggestions {color:#5f7b89}
 /* skin-pink */
 .skin.pink header,
 .skin.pink .sub-header .sub-class a > em,
@@ -2236,6 +2284,7 @@ background:#fff;
 .skin.pink header .hs-search > .search-button {
   background: #c8405d;
 }
+.skin.pink .suggestions {color:#c8405d}
 /* skin-black */
 .skin.black header,
 .skin.black .b-title > .blues ,
@@ -2282,6 +2331,10 @@ background:#fff;
   background: #333;
   color: #efefef;
 }
+.skin.black .suggestions {color:#ff993d}
+.skin.black .search .search-over {background:#373e45}
+.skin.black .search .search-over .list {background: linear-gradient(180deg, #373e45, transparent 67%, transparent 0) no-repeat bottom;}
+.skin.black .search .search-over>.list>span {color:#efefef}
 
 
 /* 滚动相关CSS */

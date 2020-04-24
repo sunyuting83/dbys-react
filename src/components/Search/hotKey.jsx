@@ -49,8 +49,8 @@ export default class HotList extends Component {
           <div className="block catalog">
             <div className="row row-wrap">
               {key.map((x,i) => 
-              <div className="col search-nav">
-                <span className="title">{x}</span>
+              <div className="col col-25" key={i} onClick={() =>this.pushKey(x.key)}>
+                <span className="label-blue">{x.key}</span>
               </div>
               )}
             </div>

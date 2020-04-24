@@ -2,6 +2,13 @@ const RootUrl = 'http://localhost:5002/api/'
 
 const IndexUrl = `${RootUrl}index`
 const HotUrl = `${RootUrl}gethot`
+const KeyUrl = (k) => {
+  return `${RootUrl}getkey?key=${k}`
+}
+const SearchUrl = (k, p) => {
+  if(!p) p = 1
+  return `${RootUrl}search?word=${k}&page=${p}`
+}
 
 const makeListUrl = (path) => {
   let url
@@ -73,5 +80,7 @@ export {
   getSkin,
   setHeight,
   ClassUrl,
-  HotUrl
+  HotUrl,
+  KeyUrl,
+  SearchUrl
 }

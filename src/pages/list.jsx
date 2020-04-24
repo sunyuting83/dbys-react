@@ -85,27 +85,29 @@ class List extends Component {
     }
   }
   onScrollHandle(event) {
-      const clientHeight = event.target.clientHeight
-      const scrollHeight = event.target.scrollHeight
-      const scrollTop = event.target.scrollTop
-      const isBottom = (clientHeight + scrollTop === scrollHeight)
-      if (this.state.isScrollBottom !== isBottom) {
-        this.setState({
-          isScrollBottom: isBottom
-        })
-      }
+    const clientHeight = event.target.clientHeight
+    const scrollHeight = event.target.scrollHeight
+    const scrollTop = event.target.scrollTop
+    const isBottom = (clientHeight + scrollTop === scrollHeight)
+    if (this.state.isScrollBottom !== isBottom) {
+      this.setState({
+        isScrollBottom: isBottom
+      })
+    }
   }
   handleAction = (action) => {
     const {id,page} = this.state;
     if ((action === this.state.action || action === STATS.refreshing) && (this.state.action === STATS.loading || action === STATS.loading) && this.state.action === STATS.refreshing) {
       return false
     }
-
     if (action === STATS.refreshing) { //刷新
       setTimeout(() => {
           this.getData(id, 1);
       }, 300)
     } else if (action === STATS.loading) { //加载更多
+      if (!this.state.hasMore) {
+        return;
+      }
       this.setState({hasMore: true});
       setTimeout(() => {
         this.getData(id,Number(page) + 1);
