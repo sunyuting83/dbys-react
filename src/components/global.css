@@ -257,7 +257,7 @@ header .hs-search > em {
   display: inline-block;
   width: 1.23rem;
   height: 1.23rem;
-  background: url('./icons/icon.png') no-repeat;
+  background: url('https://image.suning.cn/uimg/ZR/share_order/158782288287513670.jpg') no-repeat;
   background-size: 12.3rem;
   background-position: -11.07rem -1.23rem;
   top:0.30rem;
@@ -305,7 +305,7 @@ header .hs-search > .search-button {
 }
 .search .search-over>.list>i {
   margin-right: 0.5rem;
-  background:url('./icons/icon.png');
+  background:url('https://image.suning.cn/uimg/ZR/share_order/158782288287513670.jpg');
   background-size: 11.28rem 33.84rem;
   width: 1.128rem;
   height: 1.128rem;
@@ -925,14 +925,14 @@ header .icon.icon-fav {
 
 /*首页图标*/
 .icon {
-  background:url('./icons/icon.png');
+  background:url('https://image.suning.cn/uimg/ZR/share_order/158782288287513670.jpg');
   margin:0 auto;
   background-size: 16.92rem 50.77rem;
 }
 
 /*分类图标*/
 .class-icon {
-  background:url('./icons/icon.png');
+  background:url('https://image.suning.cn/uimg/ZR/share_order/158782288287513670.jpg');
   margin:0 auto;
   background-size: 26.92rem 80.76rem;
   width: 2.69rem;
@@ -969,7 +969,7 @@ header .icon.icon-fav {
 
 /*首页图标*/
 .title-icon {
-  background:url('./icons/icon.png');
+  background:url('https://image.suning.cn/uimg/ZR/share_order/158782288287513670.jpg');
   margin:0 auto;
   background-size: 16.92rem 50.77rem;
   width: 1.69rem;
@@ -1013,7 +1013,7 @@ header .icon.icon-fav {
 
 /*播放页图标*/
 .iconp {
-  background:url('./icons/icon.png');
+  background:url('https://image.suning.cn/uimg/ZR/share_order/158782288287513670.jpg');
   margin:0 auto;
   background-size: 16.92rem 50.77rem;
   width: 1.69rem;

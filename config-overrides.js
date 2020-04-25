@@ -10,6 +10,7 @@ module.exports = override(
     // config.devtool = config.mode === 'development' ? 'cheap-module-source-map' : false;
     if(process.env.NODE_ENV==="production") {
       config.externals = {
+        'core-js':'window.core-js',
         react: "window.React",
         'react-dom': "window.ReactDOM",
         Swiper: "window.Swiper",

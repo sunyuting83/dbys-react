@@ -18,4 +18,4 @@ ReactDOM.render(
   </Suspense>,
   document.getElementById('root')
 );
-serviceWorker.unregister();
+serviceWorker.register();
