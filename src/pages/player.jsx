@@ -88,7 +88,7 @@ class Player extends Component {
           playtype: cb.type,
           playstatus: true
         })
-      },100)
+      },500)
     }
   }
   componentDidMount(){
