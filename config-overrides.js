@@ -1,6 +1,6 @@
 const { override ,addWebpackAlias } = require('customize-cra');
 const path = require("path")
- 
+process.env.GENERATE_SOURCEMAP = "false"
 module.exports = override( 
   addWebpackAlias({ //路径别名
     '@': path.resolve(__dirname, 'src'),
