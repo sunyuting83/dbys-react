@@ -42,7 +42,8 @@ export default class List extends Component {
         data: data,
         action: STATS.reset,
         page: 1,
-        key: key
+        key: key,
+        hasMore: true
       });
     } else {
       this.setState({ action: STATS.reset, hasMore: false });

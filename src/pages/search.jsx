@@ -32,14 +32,17 @@ class Search extends Component {
     })
   }
   componentWillReceiveProps(nextProps, nextState) {
-    let nextGoBack = sessionStorage.getItem("isGoBack");
+    const nextGoBack = sessionStorage.getItem("isGoBack");
     if(nextGoBack && nextGoBack === '1') {
-      let listInfo = JSON.parse(sessionStorage.getItem(`listInfo:search`));
-      if (nextGoBack !== this.state.isGoback) {
-        this.setState({
-          isGoback: nextGoBack,
-          key: listInfo.searchKey
-        })
+      const s = sessionStorage.getItem(`listInfo:search`)
+      if (s) {
+        const listInfo = JSON.parse(s);
+        if (nextGoBack !== this.state.isGoback) {
+          this.setState({
+            isGoback: nextGoBack,
+            key: listInfo.searchKey
+          })
+        }
       }
     }
   }
