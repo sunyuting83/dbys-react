@@ -60,7 +60,8 @@ class List extends Component {
         this.setState({
           data: data,
           action: STATS.reset,
-          page: newpage
+          page: newpage,
+          hasMore: true
         });
       }else {
         let stateData = this.state.data
@@ -80,7 +81,7 @@ class List extends Component {
         hasMore: false,
         data: {
           ...this.state.data,
-          status: 1
+          status: 0
         } 
       });
     }
