@@ -681,13 +681,14 @@ header .icon.icon-fav {
   -o-box-sizing: border-box;
   font-size: 0px;
   text-align: left;
-  padding:0.3125rem 0;
+  padding:0.3125rem;
 }
 
 .d-col {
   display: inline-block;
   width: auto;
   padding: 0.25rem;
+  margin-right: 0.5rem;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -696,10 +697,10 @@ header .icon.icon-fav {
   position: relative;
   text-align: center;
 }
-
-.d-15 .d-col {
-  min-width: 15%;
-  margin-right: 3%;
+.d-col .label-blue {
+  margin-bottom: 0.1563rem;
+  margin-top: 0.1563rem;
+  padding: 0.4rem 0.7rem;
 }
 
 /*block*/
