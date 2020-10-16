@@ -1,4 +1,4 @@
-const RootUrl = 'http://m.zhenguohe.com/api/'
+const RootUrl = 'https://m.zhenguohe.com/api/'
 
 const IndexUrl = `${RootUrl}index`
 const HotUrl = `${RootUrl}gethot`
