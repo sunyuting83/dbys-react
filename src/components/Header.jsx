@@ -147,7 +147,7 @@ export default class Header extends Component {
                 className="col col-25 padding-tb15" 
                 key={i}
                 onClick={()=>{setHeight(this.props.height)}}>
-                  <i className={"class-icon"+s.other}></i>
+                  <i className={"class-icon cicon-i"+s.other}></i>
                   <span>{s.c_name}</span>
               </NavLink>
             ))}

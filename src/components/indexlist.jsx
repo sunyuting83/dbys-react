@@ -12,7 +12,7 @@ const indexList = (props) => {
           <div className="catalog">
             <div className="row">
               <div className="col col-10">
-                <span className={"title-icon ticon-t" + s.id}></span>
+                <span className={"title-icon ticon-t" + s.other}></span>
               </div>
               <div className="col col-70 b-title">
                 {s.c_name}
